@@ -1,0 +1,9 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <color name="KebapRed">#AD3439</color>
+    <color name="KebapWhite">#E9E7EA</color>
+    <color name="KebapBlack">#000000</color>
+    <color name="KebapLightGray">#868283</color>
+    <color name="KebapDarkGray">#504E4F</color>
+    
+</resources>
