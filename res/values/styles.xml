@@ -1,5 +1,29 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="AppTheme" parent="android:Theme.Light" />
+    
+    <style name="layout_padding">
+        <item name="android:paddingLeft">@dimen/padding_large</item>
+        <item name="android:paddingRight">@dimen/padding_large</item>
+    </style>
+    
+    <style name="layout" parent="layout_padding">
+        <item name="android:background">@color/KebapWhite</item>
+    </style>
+    
+    <style name="actionbar" parent="layout_padding">
+        <item name="android:background">@color/KebapRed</item>
+        <item name="android:paddingTop">@dimen/padding_medium</item>
+        <item name="android:paddingBottom">@dimen/padding_medium</item>
+        <item name="android:height">@dimen/actionbar_height</item> 
+    </style>
+    
+    <style name="large_text">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+    
+    <style name="white_large_text" parent="large_text">
+        <item name="android:textColor">@color/KebapWhite</item>
+    </style>
 
 </resources>
