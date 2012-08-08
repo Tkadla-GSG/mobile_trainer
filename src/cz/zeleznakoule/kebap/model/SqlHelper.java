@@ -75,12 +75,12 @@ public class SqlHelper extends SQLiteOpenHelper {
 			+ TABLE_WORKOUT + "(" + COLUMN_ID
 			+ " integer primary key autoincrement, " + COLUMN_DATE
 			+ " datetime not null, " + COLUMN_DURATION + " integer, "
-			+ COLUMN_NOTE + " text" + ");";
+			+ COLUMN_NOTE + " text, " + COLUMN_DAY_TYPE + " integer);";
 
 	private static final String CREATE_TABLE_WORKOUT_ITEMS = "CREATE TABLE "
 			+ TABLE_WORKOUT_ITEMS + "(" + COLUMN_ID
 			+ " integer primary key autoincrement, " + COLUMN_REPEATS
-			+ " integer, " + COLUMN_NOTE + " text" + ");";
+			+ " integer, " + COLUMN_NOTE + " text, " + COLUMN_WORKOUT + " integer, " + COLUMN_DRILL + " integer);";
 
 	// Insert to tables scripts
 	// TODO Napsat insert skripty
