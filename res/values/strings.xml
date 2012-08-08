@@ -7,5 +7,6 @@
     <string name="title_activity_base">BaseActivity</string>
     <string name="rotate_btn">Play Rotation</string>
     <string name="dummy_text">dummy</string>
+    <string name="title_activity_choose_exercise">ChooseExercise</string>
 
 </resources>

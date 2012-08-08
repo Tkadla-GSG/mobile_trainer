@@ -6,10 +6,10 @@
     <!-- Action Bar -->
 
     <LinearLayout
-        android:id="@+id/actionbar"
+        android:id="@+id/actionbar_main"
         style="@style/actionbar"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/actionbar_height"
         android:layout_alignParentTop="true"
         android:orientation="vertical" >
 
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/actionbar" >
+        android:layout_below="@id/actionbar_main" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                 <RelativeLayout
                     android:id="@+id/feedTab"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="439dp" >
 
                     <TabWidget
                         android:id="@android:id/tabs"
@@ -57,7 +57,8 @@
                         android:layout_centerVertical="true"
                         android:text="@string/dummy_text"
                         style="@style/black_large_text" />
-
+                    
+                    <!--  TODO to be remove -->
                     <Button
                         android:id="@+id/rotateBtn"
                         style="@style/button"
@@ -68,6 +69,17 @@
                         android:layout_centerHorizontal="true"
                         android:text="@string/rotate_btn"
                         android:onClick="onRotateBtnClick" />
+
+                    <Button
+                        android:id="@+id/chooseActivityBtn"
+                        style="@style/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/rotateBtn"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="14dp"
+                        android:text="Choose Excercise"
+                        android:textAppearance="@style/white_large_text" />
                     
                 </RelativeLayout>
 
