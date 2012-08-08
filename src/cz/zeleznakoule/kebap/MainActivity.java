@@ -2,7 +2,10 @@ package cz.zeleznakoule.kebap;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
@@ -12,7 +15,6 @@ public class MainActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
         createTabs();
     }
 
@@ -40,6 +42,11 @@ public class MainActivity extends BaseActivity {
     		specs.setContent(R.id.statsTab);
     		specs.setIndicator("Stats");
     		tabs.addTab(specs);
+    }
+    
+	public void GOTEST(View view) {
+    	Intent i = new Intent(view.getContext(), TestDatabaseActivity.class);
+    	startActivityForResult(i, 0);
     }
 
     
