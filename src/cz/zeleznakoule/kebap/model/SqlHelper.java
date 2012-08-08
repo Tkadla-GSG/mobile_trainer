@@ -50,26 +50,59 @@ public class SqlHelper extends SQLiteOpenHelper {
 			+ " integer primary key autoincrement, " + COLUMN_NAME
 			+ " varchar(64) not null);";
 	
-	private static final String CREATE_TABLE_EXCERCISES = "create table "
-			+ TABLE_EXCERCISES + "(" + COLUMN_ID
-			+ " integer primary key autoincrement, " + COLUMN_NAME
-			+ " varchar(64) not null, " + COLUMN_STARRED
-			+ " integer not null, " + COLUMN_EXCERCISE_CATEGORY
-			+ " integer not null, " + COLUMN_TAGS
-			+ " text null);";
+	private static final String CREATE_TABLE_EXCERCISES = "CREATE TABLE "
+			+ TABLE_EXCERCISES + "(" 
+			+ COLUMN_ID + " integer primary key autoincrement, " 
+			+ COLUMN_NAME + " varchar(64) not null, "
+			+ COLUMN_STARRED + " integer, "
+			+ COLUMN_EXCERCISE_CATEGORY + " integer, "
+			+ COLUMN_TAGS + " text"
+			+ ");";
+	
+	private static final String CREATE_TABLE_EXCERCISE_CATEGORIES = "CREATE TABLE "
+			+ TABLE_EXCERCISE_CATEGORIES + "(" 
+			+ COLUMN_ID	+ " integer primary key autoincrement, " 
+			+ COLUMN_NAME + " varchar(64) not null"
+			+ ");";
+	
+	private static final String CREATE_TABLE_SERIES = "CREATE TABLE "
+			+ TABLE_SERIES + "(" 
+			+ COLUMN_ID	+ " integer primary key autoincrement, " 
+			+ COLUMN_WEIGHT	+ " integer, "
+			+ COLUMN_DURATION	+ " integer, "
+			+ COLUMN_REST_DURATION	+ " integer, "
+			+ COLUMN_BREATHS + " integer"
+			+ ");";
+	
+	private static final String CREATE_TABLE_WORKOUTS = "CREATE TABLE "
+			+ TABLE_WORKOUT + "(" 
+			+ COLUMN_ID	+ " integer primary key autoincrement, " 
+			+ COLUMN_DATE	+ " datetime not null, "
+			+ COLUMN_DURATION	+ " integer, "
+			+ COLUMN_NOTE + " text"
+			+ ");";
+	
+	private static final String CREATE_TABLE_WORKOUT_ITEMS = "CREATE TABLE "
+			+ TABLE_WORKOUT_ITEMS + "(" 
+			+ COLUMN_ID	+ " integer primary key autoincrement, " 
+			+ COLUMN_REPEATS	+ " integer, "
+			+ COLUMN_NOTE + " text"
+			+ ");";
+	
+	// Insert to tables scripts
 	
 	
 	// Create database script
-	private static final String CREATE_DATABASE = CREATE_TABLE_DAY_TYPES + CREATE_TABLE_DRILLS + CREATE_TABLE_EXCERCISES;
+	private static final String CREATE_DATABASE_SCRIPT = CREATE_TABLE_DAY_TYPES + CREATE_TABLE_DRILLS + CREATE_TABLE_EXCERCISES
+			+ CREATE_TABLE_EXCERCISE_CATEGORIES + CREATE_TABLE_SERIES + CREATE_TABLE_WORKOUTS + CREATE_TABLE_WORKOUT_ITEMS;
 	
-	public SqlHelper(Context context, String name, CursorFactory factory,
-			int version) {
+	public SqlHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		database.execSQL(CREATE_DATABASE);
+		database.execSQL(CREATE_DATABASE_SCRIPT);
 	}
 
 	@Override
