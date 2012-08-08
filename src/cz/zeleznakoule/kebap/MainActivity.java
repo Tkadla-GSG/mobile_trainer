@@ -3,17 +3,26 @@ package cz.zeleznakoule.kebap;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
 
 public class MainActivity extends BaseActivity {
 
+	TextView rotatingTV = null; 
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
         createTabs();
+        
+        // vytazeni vsech potrebnych referenci z layoutu
+        rotatingTV = (TextView) findViewById(R.id.rotatingTextView);
     }
 
     @Override
@@ -42,5 +51,14 @@ public class MainActivity extends BaseActivity {
     		tabs.addTab(specs);
     }
 
+    /**
+     * Implementuje reakci na onClick udalost tlacitka rotateBtn
+     * @param view
+     */
+    public void onRotateBtnClick(View view) {
+    	RotateAnimation rotation = (RotateAnimation)AnimationUtils.loadAnimation(this,R.anim.rotate_anim);
+    	rotatingTV.clearAnimation();
+    	rotatingTV.startAnimation(rotation);
+    }
     
 }
