@@ -91,7 +91,7 @@ public class WorkoutDataSource implements IWorkoutDataSource {
 			workout.setDuration(cursor.getInt(2));
 			workout.setNote(cursor.getString(3));
 			// Relace
-			int dayTypeID = cursor.getInt(4);
+			//int dayTypeID = cursor.getInt(4);
 						
 			return workout;
 		}

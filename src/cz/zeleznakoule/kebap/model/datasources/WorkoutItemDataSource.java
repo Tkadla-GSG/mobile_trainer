@@ -84,9 +84,8 @@ public class WorkoutItemDataSource implements IWorkoutItemDataSource {
 			workoutItem.setRepeats(cursor.getInt(1));
 			workoutItem.setNote(cursor.getString(2));
 			// Get relations
-			int workoutId = cursor.getInt(3);
-			int drillId = cursor.getInt(4);
-			// TODO Nacist dalsi informace pres cizi klice	
+			// int workoutId = cursor.getInt(3);
+			// int drillId = cursor.getInt(4);
 			return workoutItem;
 		}
 	} 
