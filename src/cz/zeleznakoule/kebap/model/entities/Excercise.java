@@ -51,6 +51,9 @@ public class Excercise {
 	public void setExcerciseCategory(ExcerciseCategory excerciseCategory) {
 		ExcerciseCategory = excerciseCategory;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return Name;
+	}
 }
