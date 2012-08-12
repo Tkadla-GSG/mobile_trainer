@@ -27,26 +27,41 @@ public final class R {
         public static final int button=0x7f020000;
         public static final int button_pressed=0x7f020001;
         public static final int button_selector=0x7f020002;
-        public static final int ic_action_search=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
+        public static final int cancel=0x7f020003;
+        public static final int custom_spinner=0x7f020004;
+        public static final int custom_spinner_dropdown=0x7f020005;
+        public static final int custom_spinner_dropdown_layout=0x7f020006;
+        public static final int custom_spinner_layout=0x7f020007;
+        public static final int ic_action_search=0x7f020008;
+        public static final int ic_launcher=0x7f020009;
+        public static final int search=0x7f02000a;
+        public static final int search_button_selector=0x7f02000b;
+        public static final int spinner_default_holo_light=0x7f02000c;
+        public static final int spinner_disabled_holo_light=0x7f02000d;
+        public static final int spinner_dropdown_background_down=0x7f02000e;
+        public static final int spinner_dropdown_background_up=0x7f02000f;
+        public static final int spinner_focused_holo_light=0x7f020010;
+        public static final int spinner_pressed_holo_light=0x7f020011;
     }
     public static final class id {
-        public static final int actionbar=0x7f090009;
+        public static final int actionbar=0x7f09000a;
         public static final int actionbar_main=0x7f090000;
-        public static final int add=0x7f09000d;
+        public static final int add=0x7f09000e;
         public static final int appNameTextView=0x7f090001;
         public static final int calendarTab=0x7f090005;
         public static final int chooseActivityBtn=0x7f090004;
         public static final int chooseExcerciseLayout=0x7f090007;
-        public static final int delete=0x7f09000e;
+        public static final int custom_spinner_layout=0x7f090010;
+        public static final int delete=0x7f09000f;
         public static final int feedTab=0x7f090003;
-        public static final int group=0x7f09000c;
-        public static final int menu_settings=0x7f09000f;
+        public static final int group=0x7f09000d;
+        public static final int menu_settings=0x7f090011;
+        public static final int searchField=0x7f090009;
         public static final int searchbar=0x7f090008;
-        public static final int spinner_choose_excercise=0x7f09000b;
+        public static final int spinner_list_choose=0x7f09000c;
         public static final int statsTab=0x7f090006;
         public static final int tabhost=0x7f090002;
-        public static final int toogleSearchBtn=0x7f09000a;
+        public static final int toogleSearchBtn=0x7f09000b;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -63,6 +78,8 @@ public final class R {
         public static final int hello_world=0x7f060001;
         public static final int menu_settings=0x7f060002;
         public static final int rotate_btn=0x7f060005;
+        public static final int search_btn_hint=0x7f060009;
+        public static final int search_field_text=0x7f060008;
         public static final int title_activity_base=0x7f060004;
         public static final int title_activity_choose_exercise=0x7f060007;
         public static final int title_activity_main=0x7f060003;

@@ -28,7 +28,7 @@ public class ChooseExerciseActivity extends ListChooseActivity {
 		// TODO populate spinner z databaze
 		// TODO replace spinner layout with custom implementation
 		ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
-				this, android.R.layout.simple_spinner_item);
+				this, R.drawable.custom_spinner_layout);
 
 		// TODO remove when database is in use
 		adapter.add("RKC");
@@ -38,7 +38,7 @@ public class ChooseExerciseActivity extends ListChooseActivity {
 
 		// format polozky dropdown menu
 		// TODO replace spinner dropdown layout with custom implementation
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapter.setDropDownViewResource(R.drawable.custom_spinner_dropdown_layout);
 
 		filterSelector.setAdapter(adapter);
 

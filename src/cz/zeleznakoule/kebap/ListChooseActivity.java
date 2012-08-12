@@ -42,7 +42,7 @@ public abstract class ListChooseActivity extends ListActivity {
 		
 		// vytazeni potrebnych referenci
 		searchBar = (RelativeLayout) findViewById(R.id.searchbar);
-		filterSelector = (Spinner) findViewById(R.id.spinner_choose_excercise);
+		filterSelector = (Spinner) findViewById(R.id.spinner_list_choose);
 		PADDING_LEFT = getListView().getPaddingLeft();
 		PADDING_TOP = getListView().getPaddingTop();
 		PADDING_RIGHT = getListView().getPaddingRight();
@@ -51,7 +51,6 @@ public abstract class ListChooseActivity extends ListActivity {
 		initSpinner();
 
 		initListView();
-
 	}
 	
 	/**
@@ -86,13 +85,11 @@ public abstract class ListChooseActivity extends ListActivity {
 		anim.setAnimationListener(new AnimationListener() {
 
 			public void onAnimationStart(Animation animation) {
-				// TODO Auto-generated method stub
-
+				// TODO not used
 			}
 
 			public void onAnimationRepeat(Animation animation) {
-				// TODO Auto-generated method stub
-
+				// TODO not used
 			}
 
 			// reakce na zasunuti searchbaru, obnoveni puvodniho vzhledu
@@ -100,7 +97,6 @@ public abstract class ListChooseActivity extends ListActivity {
 			public void onAnimationEnd(Animation animation) {
 				getListView().setPadding(PADDING_LEFT, PADDING_TOP, PADDING_RIGHT,
 						padding_bottom);
-
 			}
 		});
 		
@@ -111,8 +107,6 @@ public abstract class ListChooseActivity extends ListActivity {
 	 * Implementuje reakci na onClick udalost tlacitka @+id/toogleSearchBtn
 	 * 
 	 * @param view
-	 *            TODO optimalizovat presunout animace do XML, vyhodit hardcoded
-	 *            hodnoty
 	 */
 	public void ontoggleSearchBtnClick(View view) {
 

@@ -13,8 +13,6 @@
     
     <style name="actionbar" parent="layout_padding">
         <item name="android:background">@color/KebapRed</item>
-        <item name="android:paddingTop">@dimen/padding_small</item>
-        <item name="android:paddingBottom">@dimen/padding_small</item>
         <item name="android:height">@dimen/actionbar_height</item> 
     </style>
 
