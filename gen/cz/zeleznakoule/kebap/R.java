@@ -8,24 +8,20 @@
 package cz.zeleznakoule.kebap;
 
 public final class R {
-    public static final class anim {
-        public static final int move_down=0x7f040000;
-        public static final int rotate_anim=0x7f040001;
-    }
     public static final class attr {
     }
     public static final class color {
-        public static final int KebapBlack=0x7f050002;
-        public static final int KebapDarkGray=0x7f050004;
-        public static final int KebapLightGray=0x7f050003;
-        public static final int KebapRed=0x7f050000;
-        public static final int KebapWhite=0x7f050001;
+        public static final int KebapBlack=0x7f040002;
+        public static final int KebapDarkGray=0x7f040004;
+        public static final int KebapLightGray=0x7f040003;
+        public static final int KebapRed=0x7f040000;
+        public static final int KebapWhite=0x7f040001;
     }
     public static final class dimen {
-        public static final int actionbar_height=0x7f060003;
-        public static final int padding_large=0x7f060002;
-        public static final int padding_medium=0x7f060001;
-        public static final int padding_small=0x7f060000;
+        public static final int actionbar_height=0x7f050003;
+        public static final int padding_large=0x7f050002;
+        public static final int padding_medium=0x7f050001;
+        public static final int padding_small=0x7f050000;
     }
     public static final class drawable {
         public static final int button=0x7f020000;
@@ -35,53 +31,51 @@ public final class R {
         public static final int ic_launcher=0x7f020004;
     }
     public static final class id {
-        public static final int actionbar=0x7f0a0002;
-        public static final int actionbar_main=0x7f0a0006;
-        public static final int add=0x7f0a000e;
-        public static final int appNameTextView=0x7f0a0007;
-        public static final int button1=0x7f0a0005;
-        public static final int calendarTab=0x7f0a000b;
-        public static final int chooseActivityBtn=0x7f0a000a;
-        public static final int chooseExcerciseLayout=0x7f0a0000;
-        public static final int delete=0x7f0a000f;
-        public static final int feedTab=0x7f0a0009;
-        public static final int group=0x7f0a000d;
-        public static final int menu_settings=0x7f0a0010;
-        public static final int searchbar=0x7f0a0001;
-        public static final int spinner_choose_excercise=0x7f0a0004;
-        public static final int statsTab=0x7f0a000c;
-        public static final int tabhost=0x7f0a0008;
-        public static final int toogleSearchBtn=0x7f0a0003;
+        public static final int actionbar=0x7f090009;
+        public static final int actionbar_main=0x7f090000;
+        public static final int add=0x7f09000d;
+        public static final int appNameTextView=0x7f090001;
+        public static final int calendarTab=0x7f090005;
+        public static final int chooseActivityBtn=0x7f090004;
+        public static final int chooseExcerciseLayout=0x7f090007;
+        public static final int delete=0x7f09000e;
+        public static final int feedTab=0x7f090003;
+        public static final int group=0x7f09000c;
+        public static final int menu_settings=0x7f09000f;
+        public static final int searchbar=0x7f090008;
+        public static final int spinner_choose_excercise=0x7f09000b;
+        public static final int statsTab=0x7f090006;
+        public static final int tabhost=0x7f090002;
+        public static final int toogleSearchBtn=0x7f09000a;
     }
     public static final class layout {
-        public static final int activity_choose_exercise=0x7f030000;
-        public static final int activity_main=0x7f030001;
+        public static final int activity_main=0x7f030000;
+        public static final int list_choose_activity=0x7f030001;
         public static final int test=0x7f030002;
     }
     public static final class menu {
-        public static final int activity_base=0x7f090000;
-        public static final int activity_choose_exercise=0x7f090001;
-        public static final int activity_main=0x7f090002;
+        public static final int activity_base=0x7f080000;
+        public static final int activity_main=0x7f080001;
     }
     public static final class string {
-        public static final int app_name=0x7f070000;
-        public static final int dummy_text=0x7f070006;
-        public static final int hello_world=0x7f070001;
-        public static final int menu_settings=0x7f070002;
-        public static final int rotate_btn=0x7f070005;
-        public static final int title_activity_base=0x7f070004;
-        public static final int title_activity_choose_exercise=0x7f070007;
-        public static final int title_activity_main=0x7f070003;
+        public static final int app_name=0x7f060000;
+        public static final int dummy_text=0x7f060006;
+        public static final int hello_world=0x7f060001;
+        public static final int menu_settings=0x7f060002;
+        public static final int rotate_btn=0x7f060005;
+        public static final int title_activity_base=0x7f060004;
+        public static final int title_activity_choose_exercise=0x7f060007;
+        public static final int title_activity_main=0x7f060003;
     }
     public static final class style {
-        public static final int AppTheme=0x7f080000;
-        public static final int actionbar=0x7f080003;
-        public static final int black_large_text=0x7f080007;
-        public static final int button=0x7f080008;
-        public static final int large_text=0x7f080005;
-        public static final int layout=0x7f080002;
-        public static final int layout_padding=0x7f080001;
-        public static final int searchbar=0x7f080004;
-        public static final int white_large_text=0x7f080006;
+        public static final int AppTheme=0x7f070000;
+        public static final int actionbar=0x7f070003;
+        public static final int black_large_text=0x7f070007;
+        public static final int button=0x7f070008;
+        public static final int large_text=0x7f070005;
+        public static final int layout=0x7f070002;
+        public static final int layout_padding=0x7f070001;
+        public static final int searchbar=0x7f070004;
+        public static final int white_large_text=0x7f070006;
     }
 }
