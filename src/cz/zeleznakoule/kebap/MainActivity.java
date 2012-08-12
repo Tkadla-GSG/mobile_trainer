@@ -43,11 +43,12 @@ public class MainActivity extends BaseActivity {
     		specs.setIndicator("Stats");
     		tabs.addTab(specs);
     }
-    
-	public void GOTEST(View view) {
-    	Intent i = new Intent(view.getContext(), TestDatabaseActivity.class);
-    	startActivityForResult(i, 0);
+        
+    public void onChooseExcerciseBtnClick(View view){
+    	Intent i = new Intent(view.getContext(), ChooseExerciseActivity.class);
+    	startActivityForResult(i, 0);   	
     }
+    
 
     
 }

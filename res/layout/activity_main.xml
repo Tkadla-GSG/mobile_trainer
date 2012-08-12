@@ -49,35 +49,14 @@
                         android:layout_height="wrap_content" >
                     </TabWidget>
 
-                    <TextView
-                        android:id="@+id/rotatingTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:text="@string/dummy_text"
-                        style="@style/black_large_text" />
-                    
-                    <!--  TODO to be remove -->
-                    <Button
-                        android:id="@+id/rotateBtn"
-                        style="@style/button"
-                        android:textAppearance="@style/white_large_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:text="@string/rotate_btn"
-                        android:onClick="onRotateBtnClick" />
-
                     <Button
                         android:id="@+id/chooseActivityBtn"
                         style="@style/button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/rotateBtn"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="14dp"
+                        android:layout_centerVertical="true"
+                        android:onClick="onChooseExcerciseBtnClick"
                         android:text="Choose Excercise"
                         android:textAppearance="@style/white_large_text" />
                     

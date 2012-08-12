@@ -1,33 +1,64 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:id="@+id/chooseExcerciseLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/KebapWhite">
 
-    <!-- Action Bar -->
+    <ListView
+        android:id="@android:id/list"
+        style="@style/layout"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/searchbar"
+        android:cacheColorHint="@color/KebapWhite"
+        android:drawSelectorOnTop="true" 
+        android:layout_alignParentBottom="true"/>
 
-    <LinearLayout
-        android:id="@+id/actionbar_choose_excercise"
+    <!-- SearchBar -->
+
+    <RelativeLayout
+        android:id="@+id/searchbar"
+        style="@style/searchbar"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/actionbar_height" >
+    </RelativeLayout> <!-- End of SearchBar -->
+
+
+    <!-- ActionBar -->
+
+    <RelativeLayout
+        android:id="@+id/actionbar"
         style="@style/actionbar"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/actionbar_height"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical" >
+        android:layout_height="@dimen/actionbar_height" >
+
+        <Button
+            android:id="@+id/toogleSearchBtn"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:onClick="ontoggleSearchBtnClick"
+            android:text="Search" />
 
         <Spinner
             android:id="@+id/spinner_choose_excercise"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <!-- android:background="@drawable/custom_spinner"
-            android:popupBackground="@drawable/custom_spinner_dropdown" -->
-    </LinearLayout>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/hello_world"
-        tools:context=".ChooseExercise" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+
+        <Button
+            android:id="@+id/button1"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="42dp"
+            android:layout_toLeftOf="@+id/toogleSearchBtn"
+            android:onClick="normalize"
+            android:text="Press" />
+    </RelativeLayout> <!-- End of ActionBar -->
 
 </RelativeLayout>
