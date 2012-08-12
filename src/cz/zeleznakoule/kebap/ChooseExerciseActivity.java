@@ -58,3 +58,4 @@ public class ChooseExerciseActivity extends ListChooseActivity {
 	}
 
 }
+

@@ -2,17 +2,17 @@
     android:id="@+id/chooseExcerciseLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/KebapWhite">
+    android:background="@color/KebapWhite" >
 
     <ListView
         android:id="@android:id/list"
         style="@style/layout"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
         android:layout_below="@+id/searchbar"
         android:cacheColorHint="@color/KebapWhite"
-        android:drawSelectorOnTop="true" 
-        android:layout_alignParentBottom="true"/>
+        android:drawSelectorOnTop="true" />
 
     <!-- SearchBar -->
 
@@ -27,13 +27,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:ems="10"
+            style="@style/white_large_text"
+            android:background="@drawable/textfield_default_holo_dark"
+            android:ems="8"
             android:hint="@string/search_field_text"
             android:inputType="text" >
-
-            <requestFocus />
         </EditText>
 
+        <ImageButton
+            android:id="@+id/clearSearchBtn"
+            android:layout_width="@dimen/actionbar_height"
+            android:layout_height="@dimen/actionbar_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/search_button_selector"
+            android:contentDescription="@string/search_btn_hint"
+            android:onClick="ontoggleSearchBtnClick" >
+
+            <requestFocus />
+        </ImageButton>
     </RelativeLayout> <!-- End of SearchBar -->
 
 
@@ -53,7 +65,10 @@
             android:layout_centerVertical="true"
             android:background="@drawable/search_button_selector"
             android:contentDescription="@string/search_btn_hint"
-            android:onClick="ontoggleSearchBtnClick" />
+            android:onClick="ontoggleSearchBtnClick" >
+
+            <requestFocus />
+        </ImageButton>
 
         <Spinner
             android:id="@+id/spinner_list_choose"
@@ -63,7 +78,6 @@
             android:layout_centerVertical="true"
             android:background="@drawable/custom_spinner"
             android:popupBackground="@drawable/custom_spinner_dropdown" />
-
     </RelativeLayout> <!-- End of ActionBar -->
 
 </RelativeLayout>
