@@ -28,21 +28,22 @@ public final class R {
         public static final int button_pressed=0x7f020001;
         public static final int button_selector=0x7f020002;
         public static final int cancel=0x7f020003;
-        public static final int custom_spinner=0x7f020004;
-        public static final int custom_spinner_dropdown=0x7f020005;
-        public static final int custom_spinner_dropdown_layout=0x7f020006;
-        public static final int custom_spinner_layout=0x7f020007;
-        public static final int ic_action_search=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int search=0x7f02000a;
-        public static final int search_button_selector=0x7f02000b;
-        public static final int spinner_default_holo_light=0x7f02000c;
-        public static final int spinner_disabled_holo_light=0x7f02000d;
-        public static final int spinner_dropdown_background_down=0x7f02000e;
-        public static final int spinner_dropdown_background_up=0x7f02000f;
-        public static final int spinner_focused_holo_light=0x7f020010;
-        public static final int spinner_pressed_holo_light=0x7f020011;
-        public static final int textfield_default_holo_dark=0x7f020012;
+        public static final int close_button_selector=0x7f020004;
+        public static final int custom_spinner=0x7f020005;
+        public static final int custom_spinner_dropdown=0x7f020006;
+        public static final int custom_spinner_dropdown_layout=0x7f020007;
+        public static final int custom_spinner_layout=0x7f020008;
+        public static final int ic_action_search=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int search=0x7f02000b;
+        public static final int search_button_selector=0x7f02000c;
+        public static final int spinner_default_holo_light=0x7f02000d;
+        public static final int spinner_disabled_holo_light=0x7f02000e;
+        public static final int spinner_dropdown_background_down=0x7f02000f;
+        public static final int spinner_dropdown_background_up=0x7f020010;
+        public static final int spinner_focused_holo_light=0x7f020011;
+        public static final int spinner_pressed_holo_light=0x7f020012;
+        public static final int textfield_default_holo_dark=0x7f020013;
     }
     public static final class id {
         public static final int actionbar=0x7f09000b;
@@ -91,9 +92,12 @@ public final class R {
         public static final int actionbar=0x7f070003;
         public static final int black_large_text=0x7f070007;
         public static final int button=0x7f070008;
+        public static final int closeButton=0x7f07000b;
+        public static final int imageButton=0x7f070009;
         public static final int large_text=0x7f070005;
         public static final int layout=0x7f070002;
         public static final int layout_padding=0x7f070001;
+        public static final int searchButton=0x7f07000a;
         public static final int searchbar=0x7f070004;
         public static final int white_large_text=0x7f070006;
     }

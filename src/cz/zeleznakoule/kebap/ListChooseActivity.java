@@ -5,9 +5,8 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.view.animation.TranslateAnimation;
+import com.nineoldandroids.animation.ValueAnimator;
+import com.nineoldandroids.animation.ObjectAnimator;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
@@ -18,15 +17,7 @@ public abstract class ListChooseActivity extends ListActivity {
 	protected Spinner filterSelector = null; 
 
 	// Konstanty
-	protected int PADDING_LEFT = 0;
-	protected int PADDING_TOP = 0;
-	protected int PADDING_RIGHT = 0;
-	protected int PADDING_BOTTOM = 0;
 	protected int ANIM_DURATION = 300; 
-
-	// Animace
-	protected TranslateAnimation hideSearchbarAnim = null;
-	protected TranslateAnimation showSearchbarAnim = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -43,14 +34,11 @@ public abstract class ListChooseActivity extends ListActivity {
 		// vytazeni potrebnych referenci
 		searchBar = (RelativeLayout) findViewById(R.id.searchbar);
 		filterSelector = (Spinner) findViewById(R.id.spinner_list_choose);
-		PADDING_LEFT = getListView().getPaddingLeft();
-		PADDING_TOP = getListView().getPaddingTop();
-		PADDING_RIGHT = getListView().getPaddingRight();
-		PADDING_BOTTOM = getListView().getPaddingBottom();
 		
 		initSpinner();
 
 		initListView();
+		
 	}
 	
 	/**
@@ -64,64 +52,33 @@ public abstract class ListChooseActivity extends ListActivity {
 	public abstract void initSpinner();
 
 	/**
-	 * Pripravuje animaci pro prehrani
-	 * Nastaveno pro potreby vysunuti a zasunuti searchbaru
-	 * @param fromXDelta
-	 * @param toXDelta
-	 * @param fromYDelta
-	 * @param toYDelta
-	 * @param duration
-	 * @param padding_bottom
-	 * @return
-	 */
-	private TranslateAnimation createAnim(int fromXDelta, int toXDelta,
-			int fromYDelta, int toYDelta, int duration, final int padding_bottom) {
-		TranslateAnimation anim = new TranslateAnimation(
-				Animation.ABSOLUTE, fromXDelta, Animation.ABSOLUTE, toXDelta,
-				Animation.ABSOLUTE, fromYDelta, Animation.ABSOLUTE, toYDelta);
-
-		anim.setFillAfter(true);
-		anim.setDuration(ANIM_DURATION);
-		anim.setAnimationListener(new AnimationListener() {
-
-			public void onAnimationStart(Animation animation) {
-				// TODO not used
-			}
-
-			public void onAnimationRepeat(Animation animation) {
-				// TODO not used
-			}
-
-			// reakce na zasunuti searchbaru, obnoveni puvodniho vzhledu
-			// listView
-			public void onAnimationEnd(Animation animation) {
-				getListView().setPadding(PADDING_LEFT, PADDING_TOP, PADDING_RIGHT,
-						padding_bottom);
-			}
-		});
-		
-		return anim;
-	}
-
-	/**
 	 * Implementuje reakci na onClick udalost tlacitka @+id/toogleSearchBtn
 	 * 
 	 * @param view
 	 */
 	public void ontoggleSearchBtnClick(View view) {
-
-		if (searchbarOn) { // schovej bar
+		
+		ValueAnimator anim = ObjectAnimator.ofInt(0, searchBar.getHeight());
+		anim.setDuration(ANIM_DURATION);
+		anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 			
-			hideSearchbarAnim = createAnim(0, 0, searchBar.getHeight(), 0, 300, PADDING_BOTTOM);			
-			searchBar.startAnimation(hideSearchbarAnim);
-			getListView().startAnimation(hideSearchbarAnim);
+			public void onAnimationUpdate(ValueAnimator animator) {
+				RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams( getListView().getLayoutParams() );
+				params.topMargin = (Integer) animator.getAnimatedValue();
+				getListView().setLayoutParams(params);
+				
+				params = new RelativeLayout.LayoutParams(searchBar.getLayoutParams());
+				params.topMargin = (Integer) animator.getAnimatedValue();
+				searchBar.setLayoutParams(params);
+			}
+		});
+
+		if (searchbarOn) { // schovej bar		
+			anim.reverse();
 			searchbarOn = false;
 
 		} else { // ukaz bar
-			
-			showSearchbarAnim = createAnim(0, 0, 0, searchBar.getHeight(), 300, searchBar.getHeight());
-			searchBar.startAnimation(showSearchbarAnim);
-			getListView().startAnimation(showSearchbarAnim);
+			anim.start();
 			searchbarOn = true;
 		}
 

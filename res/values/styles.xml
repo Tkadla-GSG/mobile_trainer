@@ -20,7 +20,6 @@
         <item name="android:background">@color/KebapLightGray</item>
     </style>
     
-    
     <style name="large_text">
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
     </style>
@@ -38,6 +37,18 @@
         <item name="android:background">@drawable/button_selector</item>
         <item name="android:textSize">22dp</item>
         <item name="android:textColor">@color/KebapWhite</item>
+    </style>
+    
+    <style name="imageButton">
+        <item name="android:height">@dimen/actionbar_height</item>
+        <item name="android:width">@dimen/actionbar_height</item>
+    </style>
+    
+    <style parent="imageButton" name="searchButton">
+        <item name="android:background">@drawable/search_button_selector</item>
+    </style>
+    <style parent="imageButton" name="closeButton">
+        <item name="android:background">@drawable/close_button_selector</item>
     </style>
 
 </resources>
