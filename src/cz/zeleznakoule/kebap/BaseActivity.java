@@ -1,7 +1,9 @@
 package cz.zeleznakoule.kebap;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.view.Window;
 
@@ -9,9 +11,10 @@ import android.view.Window;
  * Zakladni nastaveni aktivity.
  * Neni-li receno jinak, dedi ji vsechny ostatni aktivity. 
  * @author Tkadla
- * 
  */
-public class BaseActivity extends Activity {
+public abstract class BaseActivity extends SherlockActivity {
+	
+	protected ActionBar actionBar = null; 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,19 @@ public class BaseActivity extends Activity {
         
         // Vynucuje portrait mode pro aktivitu
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        
+		// Actionbar theme
+		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
+		
+		actionBar = getSupportActionBar(); 
+		
+		// Inicializace ActionBaru
+		initActionBar();
     }
-
+    
+	/**
+	 * Init Spinner v Actionbaru
+	 */
+	public abstract void initActionBar();
     
 }

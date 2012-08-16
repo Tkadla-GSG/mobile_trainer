@@ -11,5 +11,8 @@
     <string name="search_field_text">Search for&#8230;</string>
     <string name="search_btn_hint">Toggle SearchBar</string>
     <string name="search_btn">Search</string>
+    <string name="feed_tab">Feed</string>
+    <string name="profile_tab">Profile</string>
+    <string name="calendar_tab">Calendar</string>
 
 </resources>

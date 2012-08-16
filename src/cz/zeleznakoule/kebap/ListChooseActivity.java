@@ -1,20 +1,20 @@
 package cz.zeleznakoule.kebap;
 
-import android.content.pm.ActivityInfo;
-import android.os.Bundle;
-import android.view.Window;
-
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.*;
 
 import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.animation.ObjectAnimator;
 
+import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-public abstract class ListChooseActivity extends SherlockActivity implements
+/**TODO	filtrovani spinnerem a textfieldem
+ *		viceradkove polozky v listu
+ *		hvezdickovani
+ */
+public abstract class ListChooseActivity extends BaseActivity implements
 		ActionBar.OnNavigationListener {
 
 	private RelativeLayout searchBar = null;
@@ -31,15 +31,6 @@ public abstract class ListChooseActivity extends SherlockActivity implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// TODO duplikace kodu, neexistuje dedicnost od BaseActivity
-		// Odebira titulek aktivity, vcetne ikony (neni podpora pod verzi 11)
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-		// Vynucuje portrait mode pro aktivitu
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-		// Actionbar theme
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
 
 		setContentView(R.layout.list_choose_activity);
 
@@ -48,7 +39,6 @@ public abstract class ListChooseActivity extends SherlockActivity implements
 		listView = (ListView) findViewById(R.id.list);
 
 		// inicializace
-		initActionBar();
 		initListView();
 	}
 
@@ -79,7 +69,7 @@ public abstract class ListChooseActivity extends SherlockActivity implements
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		if(!measured){
-			actionBarHeight = getSupportActionBar().getHeight();
+			actionBarHeight = actionBar.getHeight();
 			
 			RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams( searchBar.getLayoutParams() );
 			params.height = actionBarHeight;
@@ -95,11 +85,6 @@ public abstract class ListChooseActivity extends SherlockActivity implements
 	 * Init ListView dedeneho od ListActivity
 	 */
 	public abstract void initListView();
-
-	/**
-	 * Init Spinner v Actionbaru
-	 */
-	public abstract void initActionBar();
 
 	/**
 	 * Implementuje reakci na onClick udalost tlacitka @+id/toogleSearchBtn
