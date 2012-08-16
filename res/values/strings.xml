@@ -10,5 +10,6 @@
     <string name="title_activity_choose_exercise">ChooseExercise</string>
     <string name="search_field_text">Search for&#8230;</string>
     <string name="search_btn_hint">Toggle SearchBar</string>
+    <string name="search_btn">Search</string>
 
 </resources>

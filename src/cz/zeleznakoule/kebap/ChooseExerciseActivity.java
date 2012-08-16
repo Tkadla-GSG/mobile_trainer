@@ -1,10 +1,11 @@
 package cz.zeleznakoule.kebap;
 
+import com.actionbarsherlock.app.ActionBar;
+
+import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
+import android.util.Log;
 import android.widget.ArrayAdapter;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 public class ChooseExerciseActivity extends ListChooseActivity {
 
@@ -19,42 +20,34 @@ public class ChooseExerciseActivity extends ListChooseActivity {
 		// TODO populate from database
 		String[] data = { "Kokot", "Holota", "Iskuda", "Tkadla", "Banjo",
 				"Vedro", "Rybik", "Bus" };
-		setListAdapter(new ArrayAdapter<String>(this,
+		listView.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, data));
 	}
 
 	@Override
-	public void initSpinner() {
+	public void initActionBar() {
+
 		// TODO populate spinner z databaze
 		// TODO replace spinner layout with custom implementation
-		ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
-				this, R.drawable.custom_spinner_layout);
-
 		// TODO remove when database is in use
-		adapter.add("RKC");
-		adapter.add("HKC");
-		adapter.add("Kettlebell muscle");
-		adapter.add("All");
+        Context context = getSupportActionBar().getThemedContext();
+        ArrayAdapter<CharSequence> list = new ArrayAdapter<CharSequence>(context, R.layout.sherlock_spinner_item);
+        list.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
 
-		// format polozky dropdown menu
-		// TODO replace spinner dropdown layout with custom implementation
-		adapter.setDropDownViewResource(R.drawable.custom_spinner_dropdown_layout);
+		list.add("RKC");
+		list.add("HKC");
+		list.add("Kettlebell muscle");
+		list.add("All");
+		
+        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setListNavigationCallbacks(list, this);
+	}
 
-		filterSelector.setAdapter(adapter);
-
-		// Spinner onSelect listener
-		filterSelector.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				// TODO implementovat reakci na vybrani
-			}
-
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// Not implemented
-			}
-		});
-
+	public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+		// TODO Auto-generated method stub
+		Log.d("chooseActivity", "selected " + itemPosition + " | " + itemId);
+		return false;
 	}
 
 }
