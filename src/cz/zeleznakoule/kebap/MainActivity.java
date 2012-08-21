@@ -1,16 +1,13 @@
 package cz.zeleznakoule.kebap;
 
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.view.MenuItem;
 
 import android.os.Bundle;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
-public class MainActivity extends BaseActivity implements ActionBar.TabListener {
+public class MainActivity extends BaseFragmentActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -31,46 +28,26 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener 
 
 		// TODO chybi ikony
 		ActionBar.Tab tab = actionBar.newTab();
-		tab.setText(R.string.feed_tab).setTabListener(this);
-		actionBar.addTab(tab, true); // vybrany tab
+		tab.setText(R.string.feed_tab)
+			.setTabListener(
+                new TabListener<FeedFragment>(this, "Feed tab",
+                		FeedFragment.class, null));
+		actionBar.addTab(tab, true); // defaultni tab
 
 		tab = actionBar.newTab();
-		tab.setText(R.string.calendar_tab).setTabListener(this);
+		tab.setText(R.string.calendar_tab)
+			.setTabListener(
+                new TabListener<CalendarFragment>(this, "Calendar tab",
+                		CalendarFragment.class, null));
+
 		actionBar.addTab(tab);
 
 		tab = actionBar.newTab();
-		tab.setText(R.string.profile_tab).setTabListener(this);
+		tab.setText(R.string.profile_tab)
+			.setTabListener(
+                new TabListener<ProfileFragment>(this, "Profile tab",
+                		ProfileFragment.class, null));;
 		actionBar.addTab(tab);
-	}
-
-	public void onTabSelected(Tab tab, FragmentTransaction ft) {
-
-		Fragment switchTo = null; 
-		switch (tab.getPosition()) {
-
-		case 0:  switchTo = new FeedFragment();
-			break;
-		case 1: switchTo = new CalendarFragment();
-			break;
-		case 2: switchTo = new FeedFragment();
-			break;
-		default: switchTo = new FeedFragment();
-
-		}
-		
-		//TODO nullpointer exception, but fuck why?
-		//ft.replace(android.R.id.content, switchTo);
-
-	}
-
-	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void onTabReselected(Tab tab, FragmentTransaction ft) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -88,11 +65,7 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener 
 			com.actionbarsherlock.view.MenuItem item) {
 		// TODO menu by se melo tahat z XML, zde by se melo swithovat pomoci
 		// item.getItemId()
-		if (item.getTitle().toString().equals(getString(R.string.workout_btn))) { // GOTO
-																					// Create
-																					// workout
-																					// //
-																					// Btn
+		if (item.getTitle().toString().equals(getString(R.string.workout_btn))) { // GOTO Create workout Btn
 
 			Intent i = new Intent(this, WorkoutActivity.class);
 			startActivityForResult(i, 0);
@@ -102,6 +75,13 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener 
 
 		return super.onOptionsItemSelected(item);
 
+	}
+	
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+	    super.onSaveInstanceState(outState);
+	    outState.putInt("tab", getSupportActionBar()
+	            .getSelectedNavigationIndex());
 	}
 
 }

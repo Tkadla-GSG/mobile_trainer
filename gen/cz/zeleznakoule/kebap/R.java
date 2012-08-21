@@ -8,6 +8,9 @@
 package cz.zeleznakoule.kebap;
 
 public final class R {
+    public static final class array {
+        public static final int dayTypes=0x7f0b0000;
+    }
     public static final class attr {
         /**  Specified if we are forcing an action item overflow menu. 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -806,7 +809,7 @@ containing a value of this type.
         public static final int ic_edit=0x7f02005f;
         public static final int ic_launcher=0x7f020060;
         public static final int ic_search=0x7f020061;
-        public static final int ic_spinner=0x7f020062;
+        public static final int ic_spinner_selector=0x7f020062;
         public static final int search_button_selector=0x7f020063;
         public static final int spinner_default_holo_light=0x7f020064;
         public static final int spinner_disabled_holo_light=0x7f020065;
@@ -848,32 +851,33 @@ containing a value of this type.
         public static final int abs__title=0x7f04001b;
         public static final int abs__titleDivider=0x7f04001c;
         public static final int abs__up=0x7f04000b;
-        public static final int add=0x7f040036;
-        public static final int chooseActivityBtn=0x7f040027;
-        public static final int chooseExcerciseLayout=0x7f040030;
-        public static final int clearSearchBtn=0x7f040034;
-        public static final int custom_spinner_layout=0x7f040038;
-        public static final int dateTextField=0x7f040028;
-        public static final int delete=0x7f040037;
+        public static final int add=0x7f040037;
+        public static final int chooseActivityBtn=0x7f04002d;
+        public static final int chooseExcerciseLayout=0x7f040031;
+        public static final int clearSearchBtn=0x7f040035;
+        public static final int custom_spinner_layout=0x7f040039;
+        public static final int dateTextField=0x7f040027;
+        public static final int dayTypeSpinner=0x7f04002b;
+        public static final int delete=0x7f040038;
         public static final int disableHome=0x7f040009;
-        public static final int drillListView=0x7f04002d;
-        public static final int editDateBtn=0x7f040029;
-        public static final int editLengthBtn=0x7f04002b;
+        public static final int drillListView=0x7f04002c;
+        public static final int editDateBtn=0x7f040028;
+        public static final int editLengthBtn=0x7f04002a;
         public static final int editNoteBtn=0x7f04002f;
-        public static final int group=0x7f040035;
+        public static final int group=0x7f040036;
         public static final int homeAsUp=0x7f040006;
-        public static final int lengthTextField=0x7f04002a;
-        public static final int list=0x7f040031;
+        public static final int lengthTextField=0x7f040029;
+        public static final int list=0x7f040032;
         public static final int listMode=0x7f040002;
-        public static final int menu_settings=0x7f040039;
+        public static final int menu_settings=0x7f04003a;
         public static final int normal=0x7f040001;
         public static final int noteTextField=0x7f04002e;
-        public static final int searchField=0x7f040033;
-        public static final int searchbar=0x7f040032;
+        public static final int saveWorkoutBtn=0x7f040030;
+        public static final int searchField=0x7f040034;
+        public static final int searchbar=0x7f040033;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
-        public static final int spinner1=0x7f04002c;
         public static final int tabMode=0x7f040003;
         public static final int useLogo=0x7f040004;
         public static final int wrap_content=0x7f040000;
@@ -906,17 +910,19 @@ containing a value of this type.
         public static final int activity_workout=0x7f030015;
         public static final int fragment_calendar=0x7f030016;
         public static final int fragment_feed=0x7f030017;
-        public static final int list_choose_activity=0x7f030018;
-        public static final int sherlock_spinner_dropdown_item=0x7f030019;
-        public static final int sherlock_spinner_item=0x7f03001a;
-        public static final int test=0x7f03001b;
+        public static final int fragment_profile_=0x7f030018;
+        public static final int list_choose_activity=0x7f030019;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001a;
+        public static final int sherlock_spinner_item=0x7f03001b;
+        public static final int test=0x7f03001c;
     }
     public static final class menu {
-        public static final int activity_base=0x7f0b0000;
-        public static final int activity_main=0x7f0b0001;
-        public static final int activity_workout=0x7f0b0002;
-        public static final int fragment_calendar=0x7f0b0003;
-        public static final int fragment_feed=0x7f0b0004;
+        public static final int activity_base=0x7f0c0000;
+        public static final int activity_main=0x7f0c0001;
+        public static final int activity_workout=0x7f0c0002;
+        public static final int fragment_calendar=0x7f0c0003;
+        public static final int fragment_feed=0x7f0c0004;
+        public static final int fragment_profile_=0x7f0c0005;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -951,16 +957,17 @@ containing a value of this type.
         public static final int abs__shareactionprovider_share_with_application=0x7f090009;
         public static final int addDrill_btn=0x7f090018;
         public static final int app_name=0x7f09000a;
-        public static final int calendar_tab=0x7f09001b;
-        public static final int dummy_text=0x7f09001e;
+        public static final int calendar_tab=0x7f09001c;
+        public static final int dummy_text=0x7f09001f;
         public static final int edit_date_btn_hint=0x7f090013;
         public static final int edit_lenght_btn_hint=0x7f090014;
-        public static final int feed_tab=0x7f090019;
-        public static final int hello_world=0x7f09001c;
-        public static final int menu_settings=0x7f09001f;
+        public static final int feed_tab=0x7f09001a;
+        public static final int hello_world=0x7f09001d;
+        public static final int menu_settings=0x7f090020;
         public static final int note_hint=0x7f090015;
-        public static final int profile_tab=0x7f09001a;
-        public static final int rotate_btn=0x7f09001d;
+        public static final int profile_tab=0x7f09001b;
+        public static final int rotate_btn=0x7f09001e;
+        public static final int saveWorkout_btn=0x7f090019;
         public static final int search_btn=0x7f090016;
         public static final int search_btn_hint=0x7f090012;
         public static final int search_field_text=0x7f090011;
@@ -969,6 +976,7 @@ containing a value of this type.
         public static final int title_activity_choose_exercise=0x7f09000d;
         public static final int title_activity_feed_fragment=0x7f09000e;
         public static final int title_activity_main=0x7f09000b;
+        public static final int title_activity_profile_fragment=0x7f090021;
         public static final int title_activity_workout=0x7f09000f;
         public static final int workout_btn=0x7f090017;
     }

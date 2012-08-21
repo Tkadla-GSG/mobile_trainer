@@ -10,7 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:padding="@dimen/padding_medium"
-        android:text="Feed fragment"
-        tools:context=".FeedFragment" />
+        android:text="Profile fragment"
+        tools:context=".ProfileFragment" />
 
 </RelativeLayout>

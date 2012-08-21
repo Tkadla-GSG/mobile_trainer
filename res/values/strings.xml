@@ -1,31 +1,33 @@
 <resources>
 
     <string name="app_name">Kebap</string>
-    
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_base">BaseActivity</string>
     <string name="title_activity_choose_exercise">ChooseExercise</string>
     <string name="title_activity_feed_fragment">FeedFragment</string>
     <string name="title_activity_workout">Workout</string>
     <string name="title_activity_calendar_fragment">CalendarFragment</string>
-    
     <string name="search_field_text">Search for&#8230;</string>
     <string name="search_btn_hint">Toggle searchBar</string>
     <string name="edit_date_btn_hint">Edit date</string>
     <string name="edit_lenght_btn_hint">Edit lenght</string>
     <string name="note_hint">Note</string>
-    
     <string name="search_btn">Search</string>
     <string name="workout_btn">Workout</string>
     <string name="addDrill_btn">Add drill</string>
-    
+    <string name="saveWorkout_btn">Save workout</string>
     <string name="feed_tab">Feed</string>
     <string name="profile_tab">Profile</string>
     <string name="calendar_tab">Calendar</string>
-    
     <string name="hello_world">Hello world!</string>
     <string name="rotate_btn">Play Rotation</string>
     <string name="dummy_text">dummy</string>
     <string name="menu_settings">Settings</string>
+    <string name="title_activity_profile_fragment">ProfileFragment</string>
+    <string-array name="dayTypes">
+        <item >Hard</item>
+        <item >Medium</item>
+        <item >Testing</item>
+    </string-array>
 
 </resources>

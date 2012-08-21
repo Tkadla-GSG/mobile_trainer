@@ -4,5 +4,5 @@
     android:singleLine="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/white_large_text"
+    style="@style/lightgrey_large_text"
     android:text="Spinner selector"/>  
