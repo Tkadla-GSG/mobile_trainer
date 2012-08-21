@@ -1,0 +1,141 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/topBottomPadding" >
+
+        <EditText
+            android:id="@+id/dateTextField"
+            style="@style/dark_textfield"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:ems="8"
+            android:inputType="date" />
+
+        <ImageButton
+            android:id="@+id/editDateBtn"
+            style="@style/ediImagetButton"
+            android:layout_width="70dip"
+            android:layout_height="35dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/edit_date_btn_hint"
+            android:onClick="onEditDateBtnClick" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/topBottomPadding"  >
+
+        <EditText
+            android:id="@+id/lengthTextField"
+            style="@style/dark_textfield"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:ems="8"
+            android:inputType="date" />
+
+        <ImageButton
+            android:id="@+id/editLengthBtn"
+            style="@style/ediImagetButton"
+            android:layout_width="70dip"
+            android:layout_height="35dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/edit_lenght_btn_hint"
+            android:onClick="onEditLenghtBtnClick" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/topBottomPadding"  >
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="71dp"
+            android:background="@drawable/ic_spinner"
+            tools:listitem="@android:layout/simple_spinner_item" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/topBottomPadding" 
+        android:visibility="gone" >
+
+        <ListView
+            android:id="@+id/drillListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            tools:listitem="@android:layout/simple_list_item_2" >
+
+        </ListView>
+
+        <Button
+            android:id="@+id/chooseActivityBtn"
+            style="@style/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:onClick="onAddDrillBtnClick"
+            android:text="@string/addDrill_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/topBottomPadding"  >
+
+        <EditText
+            android:id="@+id/noteTextField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="9"
+            android:hint="@string/note_hint"
+            android:inputType="textMultiLine"
+            android:background="@drawable/textfield_multiline_default"
+            android:maxEms="8"
+            android:maxLines="4"
+            android:minLines="4" />
+
+        <ImageButton
+            android:id="@+id/editNoteBtn"
+            style="@style/ediImagetButton"
+            android:layout_width="70dip"
+            android:layout_height="35dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/note_hint"
+            android:onClick="onEditNoteBtnClick" />
+    </RelativeLayout>
+
+</LinearLayout>

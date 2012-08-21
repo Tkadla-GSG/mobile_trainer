@@ -53,7 +53,7 @@ public abstract class ListChooseActivity extends BaseActivity implements
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO menu by se melo tahat z XML, zde by se melo swithovat pomoci
-		// item, getItemId()
+		// item.getItemId()
 		if (item.getTitle().toString().equals(getString(R.string.search_btn))) { // menu toggleSearch Btn
 			onToggleSearchBtnClick();
 			return true;
@@ -65,6 +65,7 @@ public abstract class ListChooseActivity extends BaseActivity implements
 
 	/**
 	 * Metoda volana pri kazdem zobrazeni activity
+	 * Vyuziva se predevsim k ziskani rozmeru elementu
 	 */
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {

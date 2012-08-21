@@ -701,7 +701,8 @@ containing a value of this type.
  Minimum width for an action button in the menu area of an action bar 
          */
         public static final int action_button_min_width=0x7f07000b;
-        public static final int actionbar_height=0x7f07000f;
+        public static final int actionbar_height=0x7f070010;
+        public static final int kebap_padding_middle=0x7f07000f;
         public static final int padding_large=0x7f07000e;
         public static final int padding_medium=0x7f07000d;
         public static final int padding_small=0x7f07000c;
@@ -795,23 +796,27 @@ containing a value of this type.
         public static final int button=0x7f020055;
         public static final int button_pressed=0x7f020056;
         public static final int button_selector=0x7f020057;
-        public static final int cancel=0x7f020058;
-        public static final int close_button_selector=0x7f020059;
-        public static final int custom_spinner=0x7f02005a;
-        public static final int custom_spinner_dropdown=0x7f02005b;
-        public static final int custom_spinner_dropdown_layout=0x7f02005c;
-        public static final int custom_spinner_layout=0x7f02005d;
-        public static final int ic_action_search=0x7f02005e;
-        public static final int ic_launcher=0x7f02005f;
-        public static final int search=0x7f020060;
-        public static final int search_button_selector=0x7f020061;
-        public static final int spinner_default_holo_light=0x7f020062;
-        public static final int spinner_disabled_holo_light=0x7f020063;
-        public static final int spinner_dropdown_background_down=0x7f020064;
-        public static final int spinner_dropdown_background_up=0x7f020065;
-        public static final int spinner_focused_holo_light=0x7f020066;
-        public static final int spinner_pressed_holo_light=0x7f020067;
-        public static final int textfield_default_holo_dark=0x7f020068;
+        public static final int close_button_selector=0x7f020058;
+        public static final int custom_spinner_dropdown=0x7f020059;
+        public static final int custom_spinner_dropdown_layout=0x7f02005a;
+        public static final int custom_spinner_layout=0x7f02005b;
+        public static final int ic_action_search=0x7f02005c;
+        public static final int ic_cancel=0x7f02005d;
+        public static final int ic_compose=0x7f02005e;
+        public static final int ic_edit=0x7f02005f;
+        public static final int ic_launcher=0x7f020060;
+        public static final int ic_search=0x7f020061;
+        public static final int ic_spinner=0x7f020062;
+        public static final int search_button_selector=0x7f020063;
+        public static final int spinner_default_holo_light=0x7f020064;
+        public static final int spinner_disabled_holo_light=0x7f020065;
+        public static final int spinner_dropdown_background_down=0x7f020066;
+        public static final int spinner_dropdown_background_up=0x7f020067;
+        public static final int spinner_focused_holo_light=0x7f020068;
+        public static final int spinner_pressed_holo_light=0x7f020069;
+        public static final int textfield_default_holo_dark=0x7f02006a;
+        public static final int textfield_default_holo_light=0x7f02006b;
+        public static final int textfield_multiline_default=0x7f02006c;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040022;
@@ -843,24 +848,32 @@ containing a value of this type.
         public static final int abs__title=0x7f04001b;
         public static final int abs__titleDivider=0x7f04001c;
         public static final int abs__up=0x7f04000b;
-        public static final int add=0x7f04002e;
+        public static final int add=0x7f040036;
         public static final int chooseActivityBtn=0x7f040027;
-        public static final int chooseExcerciseLayout=0x7f040028;
-        public static final int clearSearchBtn=0x7f04002c;
-        public static final int custom_spinner_layout=0x7f040030;
-        public static final int delete=0x7f04002f;
+        public static final int chooseExcerciseLayout=0x7f040030;
+        public static final int clearSearchBtn=0x7f040034;
+        public static final int custom_spinner_layout=0x7f040038;
+        public static final int dateTextField=0x7f040028;
+        public static final int delete=0x7f040037;
         public static final int disableHome=0x7f040009;
-        public static final int group=0x7f04002d;
+        public static final int drillListView=0x7f04002d;
+        public static final int editDateBtn=0x7f040029;
+        public static final int editLengthBtn=0x7f04002b;
+        public static final int editNoteBtn=0x7f04002f;
+        public static final int group=0x7f040035;
         public static final int homeAsUp=0x7f040006;
-        public static final int list=0x7f040029;
+        public static final int lengthTextField=0x7f04002a;
+        public static final int list=0x7f040031;
         public static final int listMode=0x7f040002;
-        public static final int menu_settings=0x7f040031;
+        public static final int menu_settings=0x7f040039;
         public static final int normal=0x7f040001;
-        public static final int searchField=0x7f04002b;
-        public static final int searchbar=0x7f04002a;
+        public static final int noteTextField=0x7f04002e;
+        public static final int searchField=0x7f040033;
+        public static final int searchbar=0x7f040032;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
+        public static final int spinner1=0x7f04002c;
         public static final int tabMode=0x7f040003;
         public static final int useLogo=0x7f040004;
         public static final int wrap_content=0x7f040000;
@@ -890,14 +903,20 @@ containing a value of this type.
         public static final int abs__screen_simple=0x7f030012;
         public static final int abs__screen_simple_overlay_action_mode=0x7f030013;
         public static final int activity_main=0x7f030014;
-        public static final int list_choose_activity=0x7f030015;
-        public static final int sherlock_spinner_dropdown_item=0x7f030016;
-        public static final int sherlock_spinner_item=0x7f030017;
-        public static final int test=0x7f030018;
+        public static final int activity_workout=0x7f030015;
+        public static final int fragment_calendar=0x7f030016;
+        public static final int fragment_feed=0x7f030017;
+        public static final int list_choose_activity=0x7f030018;
+        public static final int sherlock_spinner_dropdown_item=0x7f030019;
+        public static final int sherlock_spinner_item=0x7f03001a;
+        public static final int test=0x7f03001b;
     }
     public static final class menu {
         public static final int activity_base=0x7f0b0000;
         public static final int activity_main=0x7f0b0001;
+        public static final int activity_workout=0x7f0b0002;
+        public static final int fragment_calendar=0x7f0b0003;
+        public static final int fragment_feed=0x7f0b0004;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -930,25 +949,34 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090009;
+        public static final int addDrill_btn=0x7f090018;
         public static final int app_name=0x7f09000a;
-        public static final int calendar_tab=0x7f090017;
-        public static final int dummy_text=0x7f090010;
-        public static final int feed_tab=0x7f090015;
-        public static final int hello_world=0x7f09000b;
-        public static final int menu_settings=0x7f09000c;
-        public static final int profile_tab=0x7f090016;
-        public static final int rotate_btn=0x7f09000f;
-        public static final int search_btn=0x7f090014;
-        public static final int search_btn_hint=0x7f090013;
-        public static final int search_field_text=0x7f090012;
-        public static final int title_activity_base=0x7f09000e;
-        public static final int title_activity_choose_exercise=0x7f090011;
-        public static final int title_activity_main=0x7f09000d;
+        public static final int calendar_tab=0x7f09001b;
+        public static final int dummy_text=0x7f09001e;
+        public static final int edit_date_btn_hint=0x7f090013;
+        public static final int edit_lenght_btn_hint=0x7f090014;
+        public static final int feed_tab=0x7f090019;
+        public static final int hello_world=0x7f09001c;
+        public static final int menu_settings=0x7f09001f;
+        public static final int note_hint=0x7f090015;
+        public static final int profile_tab=0x7f09001a;
+        public static final int rotate_btn=0x7f09001d;
+        public static final int search_btn=0x7f090016;
+        public static final int search_btn_hint=0x7f090012;
+        public static final int search_field_text=0x7f090011;
+        public static final int title_activity_base=0x7f09000c;
+        public static final int title_activity_calendar_fragment=0x7f090010;
+        public static final int title_activity_choose_exercise=0x7f09000d;
+        public static final int title_activity_feed_fragment=0x7f09000e;
+        public static final int title_activity_main=0x7f09000b;
+        public static final int title_activity_workout=0x7f09000f;
+        public static final int workout_btn=0x7f090017;
     }
     public static final class style {
         public static final int AppTheme=0x7f0a0058;
         public static final int DialogWindowTitle_Sherlock=0x7f0a0033;
         public static final int DialogWindowTitle_Sherlock_Light=0x7f0a0034;
+        public static final int Kebap_actionBar_theme=0x7f0a0069;
         public static final int Sherlock___TextAppearance_Small=0x7f0a0047;
         public static final int Sherlock___Theme=0x7f0a004a;
         public static final int Sherlock___Theme_DarkActionBar=0x7f0a004c;
@@ -1037,14 +1065,19 @@ containing a value of this type.
         public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f0a0032;
         public static final int actionbar=0x7f0a005b;
         public static final int black_large_text=0x7f0a005f;
-        public static final int button=0x7f0a0060;
-        public static final int closeButton=0x7f0a0063;
-        public static final int imageButton=0x7f0a0061;
+        public static final int button=0x7f0a0063;
+        public static final int closeButton=0x7f0a0067;
+        public static final int dark_textfield=0x7f0a0062;
+        public static final int ediImagetButton=0x7f0a0064;
+        public static final int imageButton=0x7f0a0065;
         public static final int large_text=0x7f0a005d;
         public static final int layout=0x7f0a005a;
         public static final int layout_padding=0x7f0a0059;
-        public static final int searchButton=0x7f0a0062;
+        public static final int light_textfield=0x7f0a0061;
+        public static final int lightgrey_large_text=0x7f0a0060;
+        public static final int searchButton=0x7f0a0066;
         public static final int searchbar=0x7f0a005c;
+        public static final int topBottomPadding=0x7f0a0068;
         public static final int white_large_text=0x7f0a005e;
     }
     public static final class styleable {

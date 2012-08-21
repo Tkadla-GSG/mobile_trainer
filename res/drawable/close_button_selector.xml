@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
      <item android:state_pressed="true"
-           android:drawable="@drawable/cancel" /> <!-- pressed -->
+           android:drawable="@drawable/ic_cancel" /> <!-- pressed -->
      <item android:state_focused="true"
-           android:drawable="@drawable/cancel" /> <!-- focused -->
-     <item android:drawable="@drawable/cancel" /> <!-- default -->
+           android:drawable="@drawable/ic_cancel" /> <!-- focused -->
+     <item android:drawable="@drawable/ic_cancel" /> <!-- default -->
 </selector>

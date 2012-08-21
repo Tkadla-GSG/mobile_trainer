@@ -27,7 +27,7 @@ public abstract class BaseActivity extends SherlockActivity {
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         
 		// Actionbar theme
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
+		setTheme(R.style.Kebap_actionBar_theme);
 		
 		actionBar = getSupportActionBar(); 
 		

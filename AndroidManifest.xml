@@ -47,6 +47,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FeedFragment"
+            android:label="@string/title_activity_feed_fragment" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.support.v4.app.FragmentActivity" />
+        </activity>
+        <activity
+            android:name=".WorkoutActivity"
+            android:label="@string/title_activity_workout" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cz.zeleznakoule.kebap.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".CalendarFragment"
+            android:label="@string/title_activity_calendar_fragment" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="Fragment" />
+        </activity>
     </application>
 
 </manifest>

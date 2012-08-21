@@ -26,8 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            style="@style/white_large_text"
-            android:background="@drawable/textfield_default_holo_dark"
+            style="@style/light_textfield"
             android:ems="8"
             android:hint="@string/search_field_text"
             android:inputType="text" >
@@ -38,8 +37,8 @@
             style="@style/closeButton"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_width="@dimen/actionbar_height"
-            android:layout_height="@dimen/actionbar_height"
+            android:layout_height="wrap_content"
+ 			android:layout_width="wrap_content"
             android:contentDescription="@string/search_btn_hint"
             android:onClick="onToggleSearchBtnClick" >
 
