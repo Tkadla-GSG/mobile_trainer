@@ -27,23 +27,25 @@ public class MainActivity extends BaseFragmentActivity {
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// TODO chybi ikony
+		//FEED TAB
 		ActionBar.Tab tab = actionBar.newTab();
-		tab.setText(R.string.feed_tab)
+		tab .setIcon(R.drawable.tabicon_feed_selector)
 			.setTabListener(
                 new TabListener<FeedFragment>(this, "Feed tab",
                 		FeedFragment.class, null));
 		actionBar.addTab(tab, true); // defaultni tab
 
+		//CALENDAR TAB
 		tab = actionBar.newTab();
-		tab.setText(R.string.calendar_tab)
+		tab	.setIcon(R.drawable.tabicon_calendar_selector)
 			.setTabListener(
                 new TabListener<CalendarFragment>(this, "Calendar tab",
                 		CalendarFragment.class, null));
 
+		//PROFILE TAB
 		actionBar.addTab(tab);
-
 		tab = actionBar.newTab();
-		tab.setText(R.string.profile_tab)
+		tab	.setIcon(R.drawable.tabicon_profile_selector)
 			.setTabListener(
                 new TabListener<ProfileFragment>(this, "Profile tab",
                 		ProfileFragment.class, null));;
