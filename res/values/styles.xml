@@ -72,11 +72,4 @@
     <style name="topBottomPadding">
         <item name="android:paddingBottom">@dimen/padding_small</item>
         <item name="android:paddingTop">@dimen/padding_small</item>
-    </style>
-    
-    <style name="Kebap_actionBar_theme" parent="Theme.Sherlock.Light.DarkActionBar">
-        
-        
-    </style>
-
-</resources>
+    </style></resources>

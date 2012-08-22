@@ -27,7 +27,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         
 		// Actionbar theme
-		setTheme(R.style.Kebap_actionBar_theme);
+		setTheme(R.style.Theme_kebap_actionbar);
 		
 		actionBar = getSupportActionBar(); 
 		
