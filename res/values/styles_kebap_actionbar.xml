@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- File created by the Android Action Bar Style Generator
+<!--
+     File created by the Android Action Bar Style Generator
 
      Copyright (C) 2012 readyState Software Ltd
 
@@ -16,7 +17,7 @@
      limitations under the License.
 -->
 
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Theme.kebap_actionbar" parent="Theme.Sherlock.Light.DarkActionBar">
         <item name="actionBarItemBackground">@drawable/selectable_background_kebap_actionbar</item>
@@ -25,7 +26,7 @@
         <item name="actionBarTabStyle">@style/kebap_actionbar_ActionBarTabStyle</item>
         <item name="actionDropDownStyle">@style/kebap_actionbar_DropDownNav</item>
         <item name="actionBarStyle">@style/kebap_actionbar_solid_ActionBar</item>
-
+        
         <item name="android:actionBarItemBackground">@drawable/selectable_background_kebap_actionbar</item>
         <item name="android:popupMenuStyle">@style/kebap_actionbar_PopupMenu</item>
         <item name="android:dropDownListViewStyle">@style/kebap_actionbar_DropDownListView</item>
@@ -40,11 +41,17 @@
         <item name="backgroundStacked">@drawable/ab_stacked_solid_kebap_actionbar</item>
         <item name="backgroundSplit">@drawable/ab_bottom_solid_kebap_actionbar</item>
         <item name="progressBarStyle">@style/kebap_actionbar_ProgressBar</item>
-
+        <item name="titleTextStyle">@style/kebap_actionbar_titleStyle</item>
+        
         <item name="android:background">@drawable/ab_solid_kebap_actionbar</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_kebap_actionbar</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_kebap_actionbar</item>
         <item name="android:progressBarStyle">@style/kebap_actionbar_ProgressBar</item>
+        <item name="android:titleTextStyle">@style/kebap_actionbar_titleStyle</item>
+    </style>
+
+    <style name="kebap_actionbar_titleStyle" parent="TextAppearance.Sherlock.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/KebapWhite</item>
     </style>
 
     <style name="kebap_actionbar_transparent_ActionBar" parent="@style/Widget.Sherlock.Light.ActionBar">
@@ -54,29 +61,29 @@
         <item name="android:background">@drawable/ab_transparent_kebap_actionbar</item>
         <item name="android:progressBarStyle">@style/kebap_actionbar_ProgressBar</item>
     </style>
-	
-    <style name="kebap_actionbar_PopupMenu" parent="@style/Widget.Sherlock.Light.ListPopupWindow">	
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_kebap_actionbar</item>	
+
+    <style name="kebap_actionbar_PopupMenu" parent="@style/Widget.Sherlock.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_kebap_actionbar</item>
     </style>
-	
+
     <style name="kebap_actionbar_DropDownListView" parent="@style/Widget.Sherlock.Light.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_kebap_actionbar</item>
     </style>
 
     <style name="kebap_actionbar_ActionBarTabStyle" parent="@style/Widget.Sherlock.Light.ActionBar.TabView">
         <item name="background">@drawable/tab_indicator_ab_kebap_actionbar</item>
-
+        
         <item name="android:background">@drawable/tab_indicator_ab_kebap_actionbar</item>
     </style>
-	
+
     <style name="kebap_actionbar_DropDownNav" parent="@style/Widget.Sherlock.Light.Spinner.DropDown.ActionBar">
         <item name="background">@drawable/spinner_background_ab_kebap_actionbar</item>
-
+        
         <item name="android:background">@drawable/spinner_background_ab_kebap_actionbar</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_kebap_actionbar</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_kebap_actionbar</item>
     </style>
-    
+
     <style name="kebap_actionbar_ProgressBar" parent="@style/Widget.Sherlock.Light.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_kebap_actionbar</item>
     </style>
