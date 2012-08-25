@@ -1,31 +1,26 @@
 package cz.zeleznakoule.kebap;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import android.app.DatePickerDialog;
 
 import static cz.zeleznakoule.kebap.interfaces.Constants.*;
 
-public class WorkoutActivity extends BaseActivity {
+public class WorkoutActivity extends BaseFragmentActivity {
 
 	private int ANIM_DURATION = 300;
 
@@ -89,6 +84,7 @@ public class WorkoutActivity extends BaseActivity {
 	 * Nastaveni pro novy workout
 	 */
 	private void newWorkout() {
+		// Pro novy workout dnesni datum
 		SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyy" ); 
 		dateFieldTextView.setText( sdf.format( new Date() ));
 		
@@ -105,24 +101,33 @@ public class WorkoutActivity extends BaseActivity {
 	 */
 	public void onRemoveBtnClick(View view){
 		drillList.removeView((View)view.getParent());
+		Log.d("workoutActivity onremove", "removed item with id " + 
+		((TextView)((View)view.getParent()).findViewById(R.id.item_id)).getText());
 	}
 	
 	/**
 	 * Implementuje reakci na onClick udalost tlacitka Add Drill
 	 * Pridava novou polozku do listu
 	 * TODO doplnit zasahy to databaze
+	 * TODO remove counter variable
 	 * @param view
 	 */
+	int counter = 0; 
 	public void onAddDrillBtnClick(View view){
-		View row = null;
+		View row = mInflater.inflate(R.layout.drill_item_row, null);
 
-		row = mInflater.inflate(R.layout.drill_item_row, null);
 		TextView main = (TextView) row.findViewById(R.id.main);
-		main.setText("kokot ");
+		main.setText("kokot " + counter);
+		
 		TextView secondary = (TextView) row.findViewById(R.id.secondary);
 		secondary.setText("super velky chupr dupr kokot s dlouhym textem este vetsi kokot");
+		
+		TextView id = (TextView) row.findViewById(R.id.item_id);
+		id.setText("" + counter);
+		
 		drillList.addView(row);
 		
+		counter++;
 	}
 
 	/**
@@ -136,7 +141,7 @@ public class WorkoutActivity extends BaseActivity {
 		int fieldWidth = dateFieldTextView.getWidth();
 
 		ValueAnimator anim = ObjectAnimator.ofInt(0,
-				-(screenWidth - fieldWidth) / 2);
+				-3*(screenWidth - fieldWidth)/4);
 		anim.setDuration(ANIM_DURATION);
 		anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
@@ -170,17 +175,17 @@ public class WorkoutActivity extends BaseActivity {
 			
 			//add buttons
 			ImageButton dateBtn = (ImageButton) getLayoutInflater().inflate(R.drawable.edit_button, null);
-			dateBtn.setOnClickListener(new OnClickListener() {
+			dateBtn.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					
+					DialogFragment fragment = new DatePickerFragment();
+					fragment.show(getSupportFragmentManager(), "datePicker"); 
 				}
 			});
 			
 			ImageButton lengthBtn = (ImageButton) getLayoutInflater().inflate(R.drawable.edit_button, null);
-			dateBtn.setOnClickListener(new OnClickListener() {
+			lengthBtn.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
@@ -190,7 +195,7 @@ public class WorkoutActivity extends BaseActivity {
 			});
 			
 			ImageButton noteBtn = (ImageButton) getLayoutInflater().inflate(R.drawable.edit_button, null);
-			dateBtn.setOnClickListener(new OnClickListener() {
+			noteBtn.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
