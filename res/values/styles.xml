@@ -9,6 +9,8 @@
     
     <style name="layout" parent="layout_padding">
         <item name="android:background">@color/KebapWhite</item>
+        <!-- TODO tohle nefunguje  -->
+        <item name="android:windowContentOverlay">@null</item>
     </style>
     
     <style name="actionbar" parent="layout_padding">

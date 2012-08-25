@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 
+import static cz.zeleznakoule.kebap.interfaces.Constants.*;
+
 public class MainActivity extends BaseFragmentActivity {
 
 	@Override
@@ -26,7 +28,6 @@ public class MainActivity extends BaseFragmentActivity {
 		actionBar.setTitle(R.string.app_name);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-		// TODO chybi ikony
 		//FEED TAB
 		ActionBar.Tab tab = actionBar.newTab();
 		tab .setIcon(R.drawable.tabicon_feed_selector)
@@ -70,6 +71,7 @@ public class MainActivity extends BaseFragmentActivity {
 		if (item.getTitle().toString().equals(getString(R.string.workout_btn))) { // GOTO Create workout Btn
 
 			Intent i = new Intent(this, WorkoutActivity.class);
+				i.putExtra("action", CREATE_WORKOUT);
 			startActivityForResult(i, 0);
 
 			return true;

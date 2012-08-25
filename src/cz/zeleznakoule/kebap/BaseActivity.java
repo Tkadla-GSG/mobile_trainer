@@ -1,6 +1,7 @@
 package cz.zeleznakoule.kebap;
 
 import com.actionbarsherlock.app.ActionBar;
+
 import com.actionbarsherlock.app.SherlockActivity;
 
 import android.os.Bundle;
