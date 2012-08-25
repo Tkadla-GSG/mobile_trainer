@@ -29,5 +29,6 @@
         <item >Medium</item>
         <item >Testing</item>
     </string-array>
+    <string name="remove_btn">Remove</string>
 
 </resources>

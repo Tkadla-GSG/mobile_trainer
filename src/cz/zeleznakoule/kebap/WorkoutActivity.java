@@ -10,6 +10,7 @@ import com.nineoldandroids.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -41,6 +42,8 @@ public class WorkoutActivity extends BaseActivity {
 	private TextView noteFieldTextView = null;
 	
 	private LinearLayout drillList = null; 
+	
+	private LayoutInflater mInflater = null; 
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,8 @@ public class WorkoutActivity extends BaseActivity {
 		noteFieldTextView = (TextView) findViewById(R.id.noteTextField);
 		
 		drillList = (LinearLayout) findViewById(R.id.drillList);
+		
+		mInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 
 		// TODO use when needed (Home button)
 		// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -92,10 +97,32 @@ public class WorkoutActivity extends BaseActivity {
 		animTransition(true);
 	}
 	
+	/**
+	 * Implementuje reakci na onClick udalost tlacitka Remove btn
+	 * Odebira polozku z listu
+	 * TODO doplnit zasahy to databaze
+	 * @param view
+	 */
+	public void onRemoveBtnClick(View view){
+		drillList.removeView((View)view.getParent());
+	}
+	
+	/**
+	 * Implementuje reakci na onClick udalost tlacitka Add Drill
+	 * Pridava novou polozku do listu
+	 * TODO doplnit zasahy to databaze
+	 * @param view
+	 */
 	public void onAddDrillBtnClick(View view){
-		TextView item = (TextView) TextView.inflate(this, android.R.layout.simple_list_item_1, null );
-		item.setText("Kokot");
-		drillList.addView(item);
+		View row = null;
+
+		row = mInflater.inflate(R.layout.drill_item_row, null);
+		TextView main = (TextView) row.findViewById(R.id.main);
+		main.setText("kokot ");
+		TextView secondary = (TextView) row.findViewById(R.id.secondary);
+		secondary.setText("super velky chupr dupr kokot s dlouhym textem este vetsi kokot");
+		drillList.addView(row);
+		
 	}
 
 	/**
