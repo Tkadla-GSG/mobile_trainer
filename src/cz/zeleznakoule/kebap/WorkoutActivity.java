@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -57,7 +58,9 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		//vytazeni referenci
 		dayType = (Spinner) findViewById(R.id.dayTypeSpinner);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dayTypes, R.drawable.ic_spinner_layout);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		dayType.setAdapter(adapter);
+		
 		
 		dateLayout = (RelativeLayout) findViewById(R.id.dateLayout);
 		lenghtLayout = (RelativeLayout) findViewById(R.id.lengthLayout);
@@ -101,6 +104,15 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		lengthFieldTextView.setText("5 min");
 		
 		animTransition(true);
+	}
+	
+	/**
+	 * Implementuje reakci na onClick udalost tlacitka Save Workout btn
+	 * Uklada hotovy workout do databaze
+	 * @param view
+	 */
+	public void onSaveWorkoutBtnClick(View view){
+		
 	}
 	
 	/**
