@@ -12,9 +12,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.app.DatePickerDialog;
 
@@ -27,6 +31,8 @@ public class WorkoutActivity extends BaseFragmentActivity {
 	private boolean prepared = false;
 	private int action = -1;
 	
+	private Spinner dayType = null; 
+	
 	private RelativeLayout dateLayout = null;
 	private RelativeLayout lenghtLayout = null;
 	private RelativeLayout dayTypeLayout = null;
@@ -34,7 +40,7 @@ public class WorkoutActivity extends BaseFragmentActivity {
 	
 	private TextView dateFieldTextView = null;
 	private TextView lengthFieldTextView = null;
-	private TextView noteFieldTextView = null;
+	private EditText noteFieldTextView = null;
 	
 	private LinearLayout drillList = null; 
 	
@@ -49,6 +55,10 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		action = getIntent().getIntExtra("action", -1);
 		
 		//vytazeni referenci
+		dayType = (Spinner) findViewById(R.id.dayTypeSpinner);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dayTypes, R.drawable.ic_spinner_layout);
+		dayType.setAdapter(adapter);
+		
 		dateLayout = (RelativeLayout) findViewById(R.id.dateLayout);
 		lenghtLayout = (RelativeLayout) findViewById(R.id.lengthLayout);
 		dayTypeLayout = (RelativeLayout) findViewById(R.id.dayTypeLayout);
@@ -56,7 +66,7 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		
 		dateFieldTextView = (TextView) findViewById(R.id.dateTextField);
 		lengthFieldTextView = (TextView) findViewById(R.id.lengthTextField);
-		noteFieldTextView = (TextView) findViewById(R.id.noteTextField);
+		noteFieldTextView = (EditText) findViewById(R.id.noteTextField);
 		
 		drillList = (LinearLayout) findViewById(R.id.drillList);
 		
@@ -195,12 +205,22 @@ public class WorkoutActivity extends BaseFragmentActivity {
 			});
 			
 			ImageButton noteBtn = (ImageButton) getLayoutInflater().inflate(R.drawable.edit_button, null);
+			noteFieldTextView.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Do nothing, this is override for 
+					
+				}
+			});
 			noteBtn.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					
+					InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+					manager.showSoftInput(noteFieldTextView, InputMethodManager.SHOW_FORCED);
+	
+					Log.d("kokot", "fired");
 				}
 			});
 			

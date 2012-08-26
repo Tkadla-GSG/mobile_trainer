@@ -1,7 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/KebapWhite" >
 
     <LinearLayout
@@ -10,8 +10,7 @@
         style="@style/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/KebapWhite" >
+        android:orientation="vertical" >
 
         <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -107,7 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <TextView
+            <EditText
                 android:id="@+id/noteTextField"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,11 +115,9 @@
                 android:background="@drawable/textfield_multiline_default"
                 android:ems="8"
                 android:hint="@string/note_hint"
-                android:lines="4"
-                android:maxEms="8"
-                android:maxLines="4"
                 android:minLines="4"
-                android:textSize="22sp" />
+                android:maxEms="8"
+                style="@style/lightgrey_large_text"/>
         </RelativeLayout>
 
         <RelativeLayout

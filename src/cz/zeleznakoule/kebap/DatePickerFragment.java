@@ -23,7 +23,6 @@ public class DatePickerFragment extends DialogFragment implements
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 
 		sdf = new SimpleDateFormat("dd/MM/yyyy");
-		
 		tv = (TextView) (getActivity().findViewById(R.id.dateTextField));
 		cal = Calendar.getInstance();
 

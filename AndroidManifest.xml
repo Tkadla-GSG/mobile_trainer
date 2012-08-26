@@ -56,10 +56,12 @@
         </activity>
         <activity
             android:name=".WorkoutActivity"
-            android:label="@string/title_activity_workout" >
+            android:label="@string/title_activity_workout"
+            android:windowSoftInputMode="stateUnchanged" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="cz.zeleznakoule.kebap.BaseActivity" />
+                android:value="cz.zeleznakoule.kebap.BaseActivity" 
+                />
         </activity>
         <activity
             android:name=".CalendarFragment"
