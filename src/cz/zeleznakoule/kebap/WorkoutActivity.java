@@ -217,22 +217,12 @@ public class WorkoutActivity extends BaseFragmentActivity {
 			});
 			
 			ImageButton noteBtn = (ImageButton) getLayoutInflater().inflate(R.drawable.edit_button, null);
-			noteFieldTextView.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					// TODO Do nothing, this is override for 
-					
-				}
-			});
 			noteBtn.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
 					InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 					manager.showSoftInput(noteFieldTextView, InputMethodManager.SHOW_FORCED);
-	
-					Log.d("kokot", "fired");
 				}
 			});
 			

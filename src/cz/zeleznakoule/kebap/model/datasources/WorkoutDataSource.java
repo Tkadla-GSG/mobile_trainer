@@ -78,6 +78,18 @@ public class WorkoutDataSource implements IWorkoutDataSource {
 			cursor.close();
 			return workouts;
 		}
+		
+		/**
+		 * TODO doplneno jen pro testovaci ucely
+		 * @return
+		 */
+		public Cursor getCursorAll() {
+			
+			Cursor cursor = database.query(SqlHelper.TABLE_WORKOUT,
+					allColumns, null, null, null, null, null);
+
+			return cursor;
+		}
 
 		private Workout cursorToWorkout(Cursor cursor) {
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
