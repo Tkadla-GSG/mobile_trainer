@@ -55,7 +55,7 @@ public class FeedFragment extends Fragment {
 		dataSource = new WorkoutDataSource( getActivity() );
         dataSource.open();
         
-        Cursor data = dataSource.getCursorAll();
+      /*  Cursor data = dataSource.getCursorAll();
         
         String[] from = new String[]{SqlHelper.COLUMN_DATE, SqlHelper.COLUMN_DURATION};
         int[] to = new int[]{R.id.main, R.id.secondary};
@@ -63,6 +63,7 @@ public class FeedFragment extends Fragment {
         adapter = new SimpleCursorAdapter(getActivity(), R.layout.workout_item_row, data, from, to, SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         
 		workoutList.setAdapter(adapter);
+		*/
         
 		return view; 
 	}

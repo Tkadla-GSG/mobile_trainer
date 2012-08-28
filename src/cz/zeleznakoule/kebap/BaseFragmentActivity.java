@@ -19,10 +19,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        // Odebira titulek aktivity, vcetne ikony (neni podpora pod verzi 11)
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        
+
         // Vynucuje portrait mode pro aktivitu
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         
