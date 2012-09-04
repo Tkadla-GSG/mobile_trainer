@@ -1,5 +1,6 @@
 package cz.zeleznakoule.kebap;
 
+import java.util.Date;
 import java.util.List;
 
 import cz.zeleznakoule.kebap.model.SqlHelper;
@@ -53,7 +54,13 @@ public class FeedFragment extends Fragment {
         //inicializace dat list view z databaze
         //TODO list view by mel nacitat jen omezene mnozstvi dat
 		dataSource = new WorkoutDataSource( getActivity() );
-        dataSource.open();
+		dataSource.open();
+		//dataSource.createTest(new Date(), 10, "NOTE");
+        
+        
+        
+        adapter = dataSource.getSimpleCursorAdapter(getActivity());
+        
         
       /*  Cursor data = dataSource.getCursorAll();
         
@@ -61,9 +68,9 @@ public class FeedFragment extends Fragment {
         int[] to = new int[]{R.id.main, R.id.secondary};
         
         adapter = new SimpleCursorAdapter(getActivity(), R.layout.workout_item_row, data, from, to, SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
-        
+        */
 		workoutList.setAdapter(adapter);
-		*/
+		
         
 		return view; 
 	}

@@ -1,13 +1,20 @@
 package cz.zeleznakoule.kebap;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
 
+import cz.zeleznakoule.kebap.model.datasources.DayTypeDataSource;
+import cz.zeleznakoule.kebap.model.datasources.WorkoutDataSource;
+import cz.zeleznakoule.kebap.model.entities.DayType;
+
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 
 import static cz.zeleznakoule.kebap.interfaces.Constants.*;
 
@@ -57,8 +65,11 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		
 		//vytazeni referenci
 		dayType = (Spinner) findViewById(R.id.dayTypeSpinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dayTypes, R.drawable.ic_spinner_layout);
+		DayTypeDataSource data = new DayTypeDataSource(this);
+		data.open();
+		ArrayAdapter<String> adapter = data.getArrayAdapter(this);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		data.close();
 		dayType.setAdapter(adapter);
 		
 		
@@ -112,7 +123,28 @@ public class WorkoutActivity extends BaseFragmentActivity {
 	 * @param view
 	 */
 	public void onSaveWorkoutBtnClick(View view){
+		WorkoutDataSource data = new WorkoutDataSource(this);
+		DayTypeDataSource dayTypes = new DayTypeDataSource(this);
 		
+		Date date = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			date = (Date) sdf.parse((String)dateFieldTextView.getText());
+		} catch (ParseException e) {
+			// No need to act on exception, cal already has todays date
+		}
+		
+		dayTypes.open();
+		DayType day = dayTypes.getByName((String) dayType.getSelectedItem());
+		dayTypes.close();
+		
+		// TODO: Opravit prasování duration
+		data.open();
+		data.create(date, 10, noteFieldTextView.getText().toString(), day);
+		data.close();
+
+		Intent i = new Intent(this, MainActivity.class);
+		startActivityForResult(i, 0);
 	}
 	
 	/**

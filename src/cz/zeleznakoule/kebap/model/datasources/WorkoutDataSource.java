@@ -6,15 +6,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import cz.zeleznakoule.kebap.R;
 import cz.zeleznakoule.kebap.model.SqlHelper;
 import cz.zeleznakoule.kebap.model.entities.DayType;
 import cz.zeleznakoule.kebap.model.entities.Workout;
 import cz.zeleznakoule.kebap.model.idatasources.IWorkoutDataSource;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.widget.SimpleCursorAdapter;
 
 public class WorkoutDataSource implements IWorkoutDataSource {
 	
@@ -57,6 +60,26 @@ public class WorkoutDataSource implements IWorkoutDataSource {
 			return newWorkout;
 		}
 
+		public Workout createTest(Date date, int duration, String note) {
+			ContentValues values = new ContentValues();
+			
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			values.put(SqlHelper.COLUMN_DATE, formatter.format(date));
+			values.put(SqlHelper.COLUMN_DURATION, duration);
+			values.put(SqlHelper.COLUMN_NOTE, note);
+			values.put(SqlHelper.COLUMN_DAY_TYPE, 1);
+			
+			long insertId = database.insert(SqlHelper.TABLE_WORKOUT, null, values);
+			Cursor cursor = database.query(SqlHelper.TABLE_WORKOUT,
+					allColumns, SqlHelper.COLUMN_ID + " = " + insertId, null,
+					null, null, null);
+			cursor.moveToFirst();
+			Workout newWorkout = cursorToWorkout(cursor);
+			cursor.close();
+			return newWorkout;
+		}
+
+		
 		public void delete(Workout workout) {
 			long id = workout.getId();
 			database.delete(SqlHelper.TABLE_WORKOUT, SqlHelper.COLUMN_ID	+ " = " + id, null);
@@ -76,8 +99,24 @@ public class WorkoutDataSource implements IWorkoutDataSource {
 			}
 			// Make sure to close the cursor
 			cursor.close();
+			
 			return workouts;
 		}
+		
+		
+		@SuppressWarnings("deprecation")
+		public SimpleCursorAdapter getSimpleCursorAdapter(Context context) {
+		
+			Cursor data = database.query(SqlHelper.TABLE_WORKOUT,
+					allColumns, null, null, null, null, null);
+	        
+	        String[] from = new String[]{SqlHelper.COLUMN_DATE, SqlHelper.COLUMN_DURATION};
+	        int[] to = new int[]{R.id.main, R.id.secondary};
+	        
+	        return new SimpleCursorAdapter(context, R.layout.workout_item_row, data, from, to);
+		}
+		
+		
 		
 		/**
 		 * TODO doplneno jen pro testovaci ucely

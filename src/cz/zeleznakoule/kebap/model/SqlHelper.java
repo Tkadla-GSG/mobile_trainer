@@ -11,7 +11,7 @@ public class SqlHelper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
 
 	// Column names
-	public static final String COLUMN_ID = "id";
+	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_NAME = "name";
 	public static final String COLUMN_TAGS = "tags";
 	public static final String COLUMN_STARRED = "starred";
@@ -43,6 +43,18 @@ public class SqlHelper extends SQLiteOpenHelper {
 			+ TABLE_DAY_TYPES + "(" + COLUMN_ID
 			+ " integer primary key autoincrement, " + COLUMN_NAME
 			+ " varchar(64) not null);";
+	
+	private static final String INSERT_TABLE_DAY_TYPES_1 = "insert into "
+			+ TABLE_DAY_TYPES + " VALUES (1, 'Hard');"; 
+	
+	private static final String INSERT_TABLE_DAY_TYPES_2 = "insert into "
+			+ TABLE_DAY_TYPES + " VALUES (2, 'Medium');"; 
+	
+	private static final String INSERT_TABLE_DAY_TYPES_3 = "insert into "
+			+ TABLE_DAY_TYPES + " VALUES (3, 'Testing');"; 
+	
+	
+	
 
 	private static final String CREATE_TABLE_DRILLS = "create table "
 			+ TABLE_DRILLS + "(" + COLUMN_ID
@@ -76,6 +88,7 @@ public class SqlHelper extends SQLiteOpenHelper {
 			+ " integer primary key autoincrement, " + COLUMN_DATE
 			+ " datetime not null, " + COLUMN_DURATION + " integer, "
 			+ COLUMN_NOTE + " text, " + COLUMN_DAY_TYPE + " integer);";
+	
 
 	private static final String CREATE_TABLE_WORKOUT_ITEMS = "CREATE TABLE "
 			+ TABLE_WORKOUT_ITEMS + "(" + COLUMN_ID
@@ -100,6 +113,13 @@ public class SqlHelper extends SQLiteOpenHelper {
 			database.execSQL(CREATE_TABLE_SERIES);
 			database.execSQL(CREATE_TABLE_WORKOUT_ITEMS);
 			database.execSQL(CREATE_TABLE_WORKOUTS);
+			// Insert statements DAY_TYPES
+			database.execSQL(INSERT_TABLE_DAY_TYPES_1);
+			database.execSQL(INSERT_TABLE_DAY_TYPES_2);
+			database.execSQL(INSERT_TABLE_DAY_TYPES_3);
+			
+			
+			
 			database.setTransactionSuccessful();
 		} finally {
 			database.endTransaction();
