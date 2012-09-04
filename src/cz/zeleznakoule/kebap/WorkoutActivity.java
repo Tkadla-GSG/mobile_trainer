@@ -29,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 
 import static cz.zeleznakoule.kebap.interfaces.Constants.*;
@@ -243,8 +244,8 @@ public class WorkoutActivity extends BaseFragmentActivity {
 				
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					
+					Dialog dialog = new LengthPickerDialog(WorkoutActivity.this);
+					dialog.show();
 				}
 			});
 			
