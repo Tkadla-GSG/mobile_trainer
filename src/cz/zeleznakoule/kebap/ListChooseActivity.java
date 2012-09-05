@@ -7,8 +7,14 @@ import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.animation.ObjectAnimator;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /**TODO	filtrovani spinnerem a textfieldem
  *		viceradkove polozky v listu
@@ -18,8 +24,11 @@ public abstract class ListChooseActivity extends BaseActivity implements
 		ActionBar.OnNavigationListener {
 
 	private RelativeLayout searchBar = null;
+	protected TextView searchField = null;
 	protected ListView listView = null;
 	private int actionBarHeight = 0; 
+	protected TextWatcher textWatcher = null;
+	protected ArrayAdapter<String> adapter = null;
 	
 	// Flags
 	private boolean searchbarOn = false;
@@ -37,6 +46,34 @@ public abstract class ListChooseActivity extends BaseActivity implements
 		// vytazeni potrebnych referenci
 		searchBar = (RelativeLayout) findViewById(R.id.searchbar);
 		listView = (ListView) findViewById(R.id.list);
+		searchField = (TextView) findViewById(R.id.searchTextView); 
+		
+		adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1);
+
+		textWatcher = new TextWatcher() {
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				adapter.getFilter().filter(s);
+				adapter.setNotifyOnChange(true);
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+
+			}
+		};
+
+		searchField.addTextChangedListener(textWatcher);
 
 		// inicializace
 		initListView();
@@ -61,6 +98,12 @@ public abstract class ListChooseActivity extends BaseActivity implements
 
 		return super.onOptionsItemSelected(item);
 
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		searchField.removeTextChangedListener(textWatcher);
 	}
 
 	/**
@@ -117,5 +160,14 @@ public abstract class ListChooseActivity extends BaseActivity implements
 			searchbarOn = true;
 		}
 
+	}
+	
+	public void onClearSearchBtnClick(View view){
+		searchField.setText("");
+		
+		InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+		manager.hideSoftInputFromWindow(searchField.getWindowToken(), 0);
+		
+		onToggleSearchBtnClick(); 
 	}
 }

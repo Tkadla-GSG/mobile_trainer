@@ -2,7 +2,6 @@ package cz.zeleznakoule.kebap;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -14,7 +13,6 @@ import cz.zeleznakoule.kebap.model.entities.DayType;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,12 +22,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Intent;
 
 import static cz.zeleznakoule.kebap.interfaces.Constants.*;
@@ -37,6 +32,7 @@ import static cz.zeleznakoule.kebap.interfaces.Constants.*;
 public class WorkoutActivity extends BaseFragmentActivity {
 
 	private int ANIM_DURATION = 300;
+	private int FAST_ANIM = 1;
 
 	private boolean prepared = false;
 	private int action = -1;
@@ -64,7 +60,7 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		// ziskani zpravy z volajici aktivity
 		action = getIntent().getIntExtra("action", -1);
 		
-		//vytazeni referenci
+		// naplneni spinneru daytype
 		dayType = (Spinner) findViewById(R.id.dayTypeSpinner);
 		DayTypeDataSource data = new DayTypeDataSource(this);
 		data.open();
@@ -73,7 +69,7 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		data.close();
 		dayType.setAdapter(adapter);
 		
-		
+		// vytazeni referenci
 		dateLayout = (RelativeLayout) findViewById(R.id.dateLayout);
 		lenghtLayout = (RelativeLayout) findViewById(R.id.lengthLayout);
 		dayTypeLayout = (RelativeLayout) findViewById(R.id.dayTypeLayout);
@@ -115,7 +111,7 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		
 		lengthFieldTextView.setText("5 min 0 sec");
 		
-		animTransition(true);
+		animTransition(true, FAST_ANIM);
 	}
 	
 	/**
@@ -169,6 +165,11 @@ public class WorkoutActivity extends BaseFragmentActivity {
 	 */
 	int counter = 0; 
 	public void onAddDrillBtnClick(View view){
+		
+		Intent i = new Intent(view.getContext(), ChooseExerciseActivity.class);
+		startActivityForResult(i, 0);
+		
+		/* REMOVE */
 		View row = mInflater.inflate(R.layout.drill_item_row, null);
 
 		TextView main = (TextView) row.findViewById(R.id.main);
@@ -189,7 +190,7 @@ public class WorkoutActivity extends BaseFragmentActivity {
 	 * Animuje prechod z editacniho do prochazeciho modu
 	 * @param forward true - prehravani vpred, false - prehravani vzad
 	 */
-	private void animTransition(boolean forward) {
+	private void animTransition(boolean forward, int duration) {
 		//TODO pravdepodobne by prospel presun na tridni promene
 		
 		int screenWidth = dateLayout.getWidth();
@@ -197,7 +198,7 @@ public class WorkoutActivity extends BaseFragmentActivity {
 
 		ValueAnimator anim = ObjectAnimator.ofInt(0,
 				-3*(screenWidth - fieldWidth)/4);
-		anim.setDuration(ANIM_DURATION);
+		anim.setDuration( duration );
 		anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
 			public void onAnimationUpdate(ValueAnimator animator) {

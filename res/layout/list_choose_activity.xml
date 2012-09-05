@@ -22,12 +22,13 @@
         android:layout_height="@dimen/actionbar_height">
 
         <EditText
-            android:id="@+id/searchField"
+            android:id="@+id/searchTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             style="@style/light_textfield"
             android:ems="8"
+            android:singleLine="true"
             android:hint="@string/search_field_text"
             android:inputType="text" >
         </EditText>
@@ -40,7 +41,7 @@
             android:layout_height="wrap_content"
  			android:layout_width="wrap_content"
             android:contentDescription="@string/search_btn_hint"
-            android:onClick="onToggleSearchBtnClick" >
+            android:onClick="onClearSearchBtnClick" >
 
             <requestFocus />
         </ImageButton>

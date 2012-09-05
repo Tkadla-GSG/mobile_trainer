@@ -926,7 +926,7 @@ containing a value of this type.
         public static final int noteTextField=0x7f040031;
         public static final int remove_btn=0x7f040037;
         public static final int saveWorkoutBtn=0x7f040032;
-        public static final int searchField=0x7f04003f;
+        public static final int searchTextView=0x7f04003f;
         public static final int searchbar=0x7f04003e;
         public static final int secondary=0x7f040038;
         public static final int showCustom=0x7f040008;
@@ -1038,6 +1038,7 @@ containing a value of this type.
         public static final int title_activity_main=0x7f09000b;
         public static final int title_activity_profile_fragment=0x7f090021;
         public static final int title_activity_workout=0x7f09000f;
+        public static final int title_length_picker=0x7f090023;
         public static final int workout_btn=0x7f090017;
     }
     public static final class style {

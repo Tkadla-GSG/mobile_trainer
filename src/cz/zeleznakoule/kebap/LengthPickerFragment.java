@@ -29,13 +29,11 @@ public class LengthPickerFragment extends DialogFragment {
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 
-		// TODO null RootView, nektere veci nemusi fungovat
 		view = getActivity().getLayoutInflater().inflate(
 				R.layout.dialog_length_picker, null);
 		builder.setView(view);
 		builder.setCancelable(true);
 
-		// TODO texty presunout, neho nahradit androima
 		builder.setPositiveButton(android.R.string.ok, new OnClickListener() {
 
 			@Override
@@ -53,9 +51,9 @@ public class LengthPickerFragment extends DialogFragment {
 					}
 				});
 
-		// TODO move text to values
-		builder.setTitle("Doba tréninku");
+		builder.setTitle(R.string.title_length_picker);
 
+		// init picker wheels
 		tv = (TextView) (getActivity().findViewById(R.id.lengthTextField));
 		String defaultValue = (String) tv.getText();
 
@@ -65,13 +63,8 @@ public class LengthPickerFragment extends DialogFragment {
 		int minutes = 5; 
 		int seconds = 0; 
 
-		if (m.find()) {
-			minutes = Integer.parseInt(m.group());
-		}
-		
-		if (m.find()) {
-			seconds = Integer.parseInt(m.group());
-		}
+		if (m.find()) {	minutes = Integer.parseInt(m.group()); }
+		if (m.find()) {	seconds = Integer.parseInt(m.group());	}
 		
 		// init wheel pickers
 		initMinutesWheel(R.id.wheel_minutes, minutes);
