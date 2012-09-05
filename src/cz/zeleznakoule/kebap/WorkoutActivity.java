@@ -113,7 +113,7 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyy" ); 
 		dateFieldTextView.setText( sdf.format( new Date() ));
 		
-		lengthFieldTextView.setText("5 min");
+		lengthFieldTextView.setText("5 min 0 sec");
 		
 		animTransition(true);
 	}
@@ -244,8 +244,8 @@ public class WorkoutActivity extends BaseFragmentActivity {
 				
 				@Override
 				public void onClick(View v) {
-					Dialog dialog = new LengthPickerDialog(WorkoutActivity.this);
-					dialog.show();
+					DialogFragment fragment = new LengthPickerFragment();
+					fragment.show(getSupportFragmentManager(), "lengthPicker");
 				}
 			});
 			
