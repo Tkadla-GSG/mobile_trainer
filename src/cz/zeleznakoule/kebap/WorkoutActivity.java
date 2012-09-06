@@ -127,6 +127,9 @@ public class WorkoutActivity extends BaseFragmentActivity {
 
 			TextView idField = (TextView) row.findViewById(R.id.item_id);
 			idField.setText("" + counter);
+			
+			ImageButton btn = (ImageButton) row.findViewById(R.id.remove_btn);
+			btn.setVisibility(View.GONE);
 
 			drillList.addView(row);
 		}
@@ -165,7 +168,15 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		addDrillBtn.setVisibility(View.VISIBLE);
 		saveWorkoutBtn.setVisibility(View.VISIBLE);
 		noteFieldTextView.setFocusable(true);
+		noteFieldTextView.setFocusableInTouchMode(true);
 		dayType.setEnabled(true);
+		
+		// Projdi vsechny drilly a zapni mazaci buttony
+		for(int index = drillList.getChildCount() - 1; index >= 0; index-- ){			
+			RelativeLayout row = (RelativeLayout) drillList.getChildAt(index);
+			ImageButton btn = (ImageButton) row.findViewById(R.id.remove_btn);
+			btn.setVisibility(View.VISIBLE);
+		}
 	}
 
 	/**
@@ -319,9 +330,12 @@ public class WorkoutActivity extends BaseFragmentActivity {
 
 				@Override
 				public void onClick(View v) {
+					noteFieldTextView.requestFocus();
+					
 					InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 					manager.showSoftInput(noteFieldTextView,
 							InputMethodManager.SHOW_FORCED);
+					
 				}
 			});
 
@@ -385,21 +399,17 @@ public class WorkoutActivity extends BaseFragmentActivity {
 			com.actionbarsherlock.view.MenuItem item) {
 
 		switch (item.getItemId()) {
-		//case android.R.id.home:
-			//NavUtils.navigateUpFromSameTask(this);
-			//return true;
-		case R.id.menu_editworkout:
-			
-			action = EDIT_WORKOUT; 
-			
-			animTransition(true, ANIM_DURATION);
-			
-			//TODO change menu
-			//getSupportMenuInflater().inflate(R.menu.activity_workout_edit, null);
-			
-			return true;
-		case R.id.menu_loadpreset:
-			return true; 
+			case R.id.menu_editworkout:
+				
+				action = EDIT_WORKOUT; 
+				makeWorkoutEditable();
+				invalidateOptionsMenu();
+				animTransition(true, ANIM_DURATION);
+	
+				return true;
+			case R.id.menu_loadpreset:
+				
+				return true; 
 		}
 
 		return super.onOptionsItemSelected(item);
