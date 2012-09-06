@@ -110,8 +110,8 @@ public class WorkoutDataSource implements IWorkoutDataSource {
 			Cursor data = database.query(SqlHelper.TABLE_WORKOUT,
 					allColumns, null, null, null, null, null);
 	        
-	        String[] from = new String[]{SqlHelper.COLUMN_DATE, SqlHelper.COLUMN_DURATION};
-	        int[] to = new int[]{R.id.main, R.id.secondary};
+	        String[] from = new String[]{SqlHelper.COLUMN_DATE, SqlHelper.COLUMN_DURATION, SqlHelper.COLUMN_ID};
+	        int[] to = new int[]{R.id.main, R.id.secondary, R.id.item_id};
 	        
 	        return new SimpleCursorAdapter(context, R.layout.workout_item_row, data, from, to);
 		}

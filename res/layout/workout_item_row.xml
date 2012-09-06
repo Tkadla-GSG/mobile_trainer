@@ -13,7 +13,8 @@
         android:layout_toLeftOf="@+id/next_item_btn"
         android:singleLine="true"
         android:text="@string/dummy_text"
-        android:textSize="22sp" >
+        android:textSize="22sp"
+        android:focusable="false" >
     </TextView>
 
     <TextView
@@ -28,13 +29,15 @@
         android:text="@string/dummy_text"
         android:textSize="12sp"
         android:textColor="@color/KebapRed" 
-        android:paddingBottom="@dimen/padding_medium"/>
+        android:paddingBottom="@dimen/padding_medium"
+        android:focusable="false"/>
     
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/item_id"
         android:visibility="gone"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:focusable="false"/>
     <ImageButton
         android:id="@+id/next_item_btn"
         android:layout_width="wrap_content"
@@ -45,6 +48,7 @@
         android:background="@drawable/ic_next_item"
         android:contentDescription="@string/remove_btn"
         android:text="@string/remove_btn" 
-        android:paddingBottom="@dimen/padding_medium"/>
+        android:paddingBottom="@dimen/padding_medium"
+        android:focusable="false"/>
 
 </RelativeLayout>

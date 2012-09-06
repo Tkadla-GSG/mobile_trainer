@@ -96,9 +96,13 @@ public class WorkoutActivity extends BaseFragmentActivity {
 
 	/**
 	 * Nastaveni pro existuji workout
+	 * TODO reakce na id, ktere neexistuje
 	 */
 	private void showWorkout() {
-		// getIntent().getParcelableExtra(name);
+		int id = getIntent().getIntExtra("id", 0);
+		
+		//TODO show progress bar during database loading
+		//TODO parse workout
 	}
 
 	/**

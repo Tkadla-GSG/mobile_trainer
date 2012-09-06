@@ -162,6 +162,10 @@ public abstract class ListChooseActivity extends BaseActivity implements
 
 	}
 	
+	/**
+	 * Implementuje reakci na onClick udalost tlacitka @+id/clearSearchBtn
+	 * @param view
+	 */
 	public void onClearSearchBtnClick(View view){
 		searchField.setText("");
 		
