@@ -31,5 +31,7 @@
     </string-array>
     <string name="remove_btn">Remove</string>
     <string name="title_length_picker">Workout Time</string>
+    <string name="menu_editworkout_title">Edit Workout</string>
+    <string name="menu_loadpreset_title">Load Preset</string>
 
 </resources>

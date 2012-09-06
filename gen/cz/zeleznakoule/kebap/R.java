@@ -896,7 +896,7 @@ containing a value of this type.
         public static final int abs__titleDivider=0x7f04001c;
         public static final int abs__up=0x7f04000b;
         public static final int add=0x7f040042;
-        public static final int chooseActivityBtn=0x7f04002f;
+        public static final int addDrillBtn=0x7f04002f;
         public static final int chooseExcerciseLayout=0x7f04003c;
         public static final int clearSearchBtn=0x7f040040;
         public static final int custom_spinner_layout=0x7f040045;
@@ -919,6 +919,8 @@ containing a value of this type.
         public static final int list=0x7f04003d;
         public static final int listMode=0x7f040002;
         public static final int main=0x7f040036;
+        public static final int menu_editworkout=0x7f040048;
+        public static final int menu_loadpreset=0x7f040047;
         public static final int menu_settings=0x7f040046;
         public static final int next_item_btn=0x7f040044;
         public static final int normal=0x7f040001;
@@ -978,10 +980,11 @@ containing a value of this type.
     public static final class menu {
         public static final int activity_base=0x7f0c0000;
         public static final int activity_main=0x7f0c0001;
-        public static final int activity_workout=0x7f0c0002;
-        public static final int fragment_calendar=0x7f0c0003;
-        public static final int fragment_feed=0x7f0c0004;
-        public static final int fragment_profile_=0x7f0c0005;
+        public static final int activity_workout_edit=0x7f0c0002;
+        public static final int activity_workout_show=0x7f0c0003;
+        public static final int fragment_calendar=0x7f0c0004;
+        public static final int fragment_feed=0x7f0c0005;
+        public static final int fragment_profile_=0x7f0c0006;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1022,6 +1025,8 @@ containing a value of this type.
         public static final int edit_lenght_btn_hint=0x7f090014;
         public static final int feed_tab=0x7f09001a;
         public static final int hello_world=0x7f09001d;
+        public static final int menu_editworkout_title=0x7f090024;
+        public static final int menu_loadpreset_title=0x7f090025;
         public static final int menu_settings=0x7f090020;
         public static final int note_hint=0x7f090015;
         public static final int profile_tab=0x7f09001b;
