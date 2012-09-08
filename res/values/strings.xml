@@ -33,6 +33,7 @@
     <string name="title_length_picker">Workout Time</string>
     <string name="menu_editworkout_title">Edit Workout</string>
     <string name="menu_loadpreset_title">Load Preset</string>
+    <string name="menu_savepreset_title">Save Preset</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 

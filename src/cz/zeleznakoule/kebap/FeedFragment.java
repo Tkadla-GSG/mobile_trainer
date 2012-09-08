@@ -113,13 +113,4 @@ public class FeedFragment extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 	}
 	
-	/**
-	 * Implementuje reakci na klik na polozku feedu
-	 * @param view
-	 */
-	public void onShowWorkoutClick(View view){
-		Log.d("TAG", "ojoj");
-		
-	}
-
 }

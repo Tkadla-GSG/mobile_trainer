@@ -927,8 +927,9 @@ containing a value of this type.
         public static final int list=0x7f040044;
         public static final int listMode=0x7f040002;
         public static final int main=0x7f04003d;
-        public static final int menu_editworkout=0x7f04004f;
+        public static final int menu_editworkout=0x7f040050;
         public static final int menu_loadpreset=0x7f04004e;
+        public static final int menu_savepreset=0x7f04004f;
         public static final int menu_settings=0x7f04004d;
         public static final int nextMonth=0x7f040039;
         public static final int next_item_btn=0x7f04004b;
@@ -1040,10 +1041,11 @@ containing a value of this type.
         public static final int hello_world=0x7f09001d;
         public static final int menu_editworkout_title=0x7f090024;
         public static final int menu_loadpreset_title=0x7f090025;
+        public static final int menu_savepreset_title=0x7f090026;
         public static final int menu_settings=0x7f090020;
-        public static final int next=0x7f090026;
+        public static final int next=0x7f090027;
         public static final int note_hint=0x7f090015;
-        public static final int previous=0x7f090027;
+        public static final int previous=0x7f090028;
         public static final int profile_tab=0x7f09001b;
         public static final int remove_btn=0x7f090022;
         public static final int rotate_btn=0x7f09001e;

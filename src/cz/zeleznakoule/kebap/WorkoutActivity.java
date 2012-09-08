@@ -2,6 +2,7 @@ package cz.zeleznakoule.kebap;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -55,6 +56,9 @@ public class WorkoutActivity extends BaseFragmentActivity {
 	private LinearLayout drillList = null;
 
 	private LayoutInflater mInflater = null;
+	
+	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	private String defaultLength = "5 min 0 sec";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -150,10 +154,32 @@ public class WorkoutActivity extends BaseFragmentActivity {
 	 */
 	private void newWorkout() {
 		// Pro novy workout dnesni datum
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		dateFieldTextView.setText(sdf.format(new Date()));
 
-		lengthFieldTextView.setText("5 min 0 sec");
+		lengthFieldTextView.setText( defaultLength );
+
+		makeWorkoutEditable();
+
+		animTransition(true, FAST_ANIM);
+	}
+	
+	/**
+	 * Nastaveni pro novy workout, ktery vznika se znamim date (z kalendare)
+	 */
+	private void workoutFromDate(){
+		// Pro novy workout dnesni datum
+		Calendar cal = Calendar.getInstance(); 
+		int year = getIntent().getIntExtra("year", cal.get(Calendar.YEAR));
+		int month = getIntent().getIntExtra("month", cal.get(Calendar.MONTH));
+		int day = getIntent().getIntExtra("day", cal.get(Calendar.DATE));
+		
+		Log.d("getted day", "" + day);
+		
+		cal.set(year, month, day);
+		
+		dateFieldTextView.setText(sdf.format( cal.getTime() ));
+
+		lengthFieldTextView.setText( defaultLength );
 
 		makeWorkoutEditable();
 
@@ -357,6 +383,9 @@ public class WorkoutActivity extends BaseFragmentActivity {
 				break;
 			case EDIT_WORKOUT:
 				editWorkout();
+				break;
+			case NEW_WORKOUT_FROM_DATE:
+				workoutFromDate();
 				break;
 			default:
 				newWorkout();

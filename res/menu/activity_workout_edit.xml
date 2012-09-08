@@ -1,3 +1,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menu_loadpreset" android:title="@string/menu_loadpreset_title" android:orderInCategory="1"></item>
+    <item android:id="@+id/menu_savepreset" android:title="@string/menu_savepreset_title"></item>
 </menu>
