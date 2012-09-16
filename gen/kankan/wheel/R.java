@@ -918,6 +918,7 @@ containing a value of this type.
         public static final int drillListLayout=0x7f04002d;
         public static final int feedLayout=0x7f040041;
         public static final int feedListView=0x7f040042;
+        public static final int flipper=0x7f040043;
         public static final int group=0x7f040049;
         public static final int homeAsUp=0x7f040006;
         public static final int item_id=0x7f040040;
@@ -948,7 +949,6 @@ containing a value of this type.
         public static final int showTitle=0x7f040007;
         public static final int tabMode=0x7f040003;
         public static final int useLogo=0x7f040004;
-        public static final int viewpager=0x7f040043;
         public static final int wheel_minutes=0x7f04003b;
         public static final int wheel_seconds=0x7f04003c;
         public static final int wrap_content=0x7f040000;
@@ -986,11 +986,14 @@ containing a value of this type.
         public static final int fragment_calendar=0x7f03001a;
         public static final int fragment_feed=0x7f03001b;
         public static final int fragment_profile_=0x7f03001c;
-        public static final int list_choose_activity=0x7f03001d;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001e;
-        public static final int sherlock_spinner_item=0x7f03001f;
-        public static final int test=0x7f030020;
-        public static final int workout_item_row=0x7f030021;
+        public static final int layout_stats_01=0x7f03001d;
+        public static final int layout_stats_02=0x7f03001e;
+        public static final int layout_stats_03=0x7f03001f;
+        public static final int list_choose_activity=0x7f030020;
+        public static final int sherlock_spinner_dropdown_item=0x7f030021;
+        public static final int sherlock_spinner_item=0x7f030022;
+        public static final int test=0x7f030023;
+        public static final int workout_item_row=0x7f030024;
     }
     public static final class menu {
         public static final int activity_base=0x7f0c0000;
