@@ -2,6 +2,7 @@ package cz.zeleznakoule.kebap;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.LayoutInflater;
@@ -83,8 +84,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                     return false;
                 
                 // indicator setup (replace currently selected with not selected)
-                //View v = (View)indicator.getChildAt( flipper.getDisplayedChild() );
-                //v.setBackgroundDrawable( getResources().getDrawable( R.drawable.page_indicator ) );
+                View v = (View)indicator.getChildAt( flipper.getDisplayedChild() );         
+                v.setBackgroundDrawable(getResources().getDrawable(R.drawable.circle_shape));
                 
                 // right to left swipe
                 if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
@@ -98,8 +99,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 }
                 
                 // indicator setup (add selected page)
-                //v = (View)indicator.getChildAt( flipper.getDisplayedChild() );
-                //v.setBackgroundDrawable( getResources().getDrawable( R.drawable.page_indicator_selected ) );
+                v = (View)indicator.getChildAt( flipper.getDisplayedChild() );         
+                v.setBackgroundDrawable(getResources().getDrawable(R.drawable.circle_shape_selected));;
+               
                 
             } catch (Exception e) {
                 // nothing

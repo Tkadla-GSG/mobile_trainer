@@ -2,7 +2,6 @@
 <View xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/page_indicator_size"
     android:layout_height="@dimen/page_indicator_size"
-    android:background="@drawable/circle_shape_selected"
-    android:padding="@dimen/padding_small">
+    android:background="@drawable/circle_shape_selected">
     
 </View>
