@@ -1,18 +1,16 @@
 package cz.zeleznakoule.kebap;
 
-import android.annotation.SuppressLint;
+import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.LayoutInflater;
-import android.view.LayoutInflater.Filter;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 import android.support.v4.app.Fragment;
 
@@ -26,8 +24,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private GestureDetector gestureDetector;
     private View.OnTouchListener gestureListener;
     private LinearLayout indicator;
-    private View selectedIndicator;
-    private View notSelectedIndicator; 
+    
+    private Paint paint = new Paint();
 
 
 	@Override
@@ -61,9 +59,16 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 			inflater.inflate( R.drawable.page_indicator, indicator);
 		}
 		
-		//TODO nastaveni view
-
+		setupView01(view);
+	
 		return view;
+	}
+
+	private void setupView01(View view) {
+		
+		LinearLayout holder = (LinearLayout) view.findViewById( R.id.stats01holder );
+		holder.addView( new Stats01(getActivity()) );
+		
 	}
 
 	@Override
@@ -90,11 +95,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 // right to left swipe
                 if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
 
-                	flipper.showPrevious();
+                	flipper.showNext();
                 	
                 }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-
-                	flipper.showNext();
+                	
+                	flipper.showPrevious();
                 	
                 }
                 
