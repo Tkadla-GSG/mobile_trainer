@@ -2,6 +2,8 @@
 <View xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/page_indicator_size"
     android:layout_height="@dimen/page_indicator_size"
-    android:background="@drawable/circle_shape">
+    android:background="@drawable/circle_shape"
+    android:layout_marginLeft="@dimen/page_indicator_padding"
+    android:layout_marginRight="@dimen/page_indicator_padding">
     
 </View>

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/layout" >
+    style="@style/layout_no_padding" >
 
 <LinearLayout
     android:id="@+id/profile_page_indicator"

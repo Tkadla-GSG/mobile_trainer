@@ -5,5 +5,7 @@
     <color name="KebapBlack">#000000</color>
     <color name="KebapLightGray">#868283</color>
     <color name="KebapDarkGray">#504E4F</color>
+    <color name="KebapMediumRed">#B57172</color>
+    <color name="KebapLightRed">#E7979A</color>
     
 </resources>

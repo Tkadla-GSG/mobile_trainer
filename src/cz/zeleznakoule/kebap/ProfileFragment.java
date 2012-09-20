@@ -1,6 +1,5 @@
 package cz.zeleznakoule.kebap;
 
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -9,8 +8,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.ViewFlipper;
 import android.support.v4.app.Fragment;
 
@@ -24,9 +24,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private GestureDetector gestureDetector;
     private View.OnTouchListener gestureListener;
     private LinearLayout indicator;
-    
-    private Paint paint = new Paint();
-
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,6 +45,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         // nastaveni flipperu
 		flipper = (ViewFlipper) view.findViewById( R.id.flipper );
+			
 		view.setOnClickListener( this );
 		view.setOnTouchListener( gestureListener );
 		
@@ -81,7 +79,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 	 * @author Tkadla
 	 *
 	 */
-	class MyGestureDetector extends SimpleOnGestureListener {
+	private class MyGestureDetector extends SimpleOnGestureListener {
+		
+		Animation in_left_right =  AnimationUtils.loadAnimation( getActivity(), R.anim.in_left_right);
+		Animation out_left_right =  AnimationUtils.loadAnimation( getActivity(), R.anim.out_left_right);
+		Animation in_right_left =  AnimationUtils.loadAnimation( getActivity(), R.anim.in_right_left);
+		Animation out_right_left =  AnimationUtils.loadAnimation( getActivity(), R.anim.out_right_left);
+		
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             try {
@@ -95,9 +99,15 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 // right to left swipe
                 if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
 
+                	flipper.setInAnimation( in_right_left );
+            		flipper.setOutAnimation( out_right_left );
+                	
                 	flipper.showNext();
                 	
                 }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                	
+                	flipper.setInAnimation( in_left_right );
+            		flipper.setOutAnimation( out_left_right );
                 	
                 	flipper.showPrevious();
                 	

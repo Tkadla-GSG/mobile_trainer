@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-import cz.zeleznakoule.kebap.ProfileFragment.MyGestureDetector;
-
 import static cz.zeleznakoule.kebap.interfaces.Constants.*;
 
 import android.content.Context;
