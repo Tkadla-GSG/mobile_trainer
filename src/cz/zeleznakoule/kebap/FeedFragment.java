@@ -8,7 +8,7 @@ import cz.zeleznakoule.kebap.model.datasources.WorkoutDataSource;
 import cz.zeleznakoule.kebap.model.entities.Excercise;
 import cz.zeleznakoule.kebap.model.entities.Workout;
 import cz.zeleznakoule.kebap.model.entities.WorkoutItem;
-import static cz.zeleznakoule.kebap.interfaces.Constants.*;
+import static cz.zeleznakoule.kebap.shared.Constants.*;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

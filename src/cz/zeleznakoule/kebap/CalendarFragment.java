@@ -10,7 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-import static cz.zeleznakoule.kebap.interfaces.Constants.*;
+import cz.zeleznakoule.kebap.shared.FragmentGestureListener;
+
+import static cz.zeleznakoule.kebap.shared.Constants.*;
 
 import android.content.Context;
 import android.content.Intent;
@@ -34,6 +36,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.support.v4.app.Fragment;
 
@@ -42,13 +45,7 @@ import android.support.v4.app.Fragment;
  * @author Tkadla
  *
  */
-public class CalendarFragment extends Fragment implements OnClickListener {
-
-    private static int SWIPE_MIN_DISTANCE = 120;
-    private static int SWIPE_MAX_OFF_PATH = 250;
-    private static int SWIPE_THRESHOLD_VELOCITY = 200;
-    private GestureDetector gestureDetector;
-    private View.OnTouchListener gestureListener;
+public class CalendarFragment extends BaseFragment implements OnClickListener {
 	
 	private Button currentMonth;
 	private ImageView prevMonth;
@@ -66,16 +63,10 @@ public class CalendarFragment extends Fragment implements OnClickListener {
 		View view = inflater.inflate(R.layout.calendar_view, container, false);
 		
 		// detekovani gest
-		gestureDetector = new GestureDetector( getActivity(), new MyGestureDetector() );
-        gestureListener = new View.OnTouchListener() {
-            public boolean onTouch( View v, MotionEvent event ) {
-                return gestureDetector.onTouchEvent( event );
-            }
-        };
-        
-        final ViewConfiguration vc = ViewConfiguration.get( getActivity() );
-        SWIPE_MIN_DISTANCE = vc.getScaledTouchSlop();
-        SWIPE_THRESHOLD_VELOCITY = vc.getScaledMinimumFlingVelocity();
+		FragmentGestureListener swipeDetector = new FragmentGestureListener(
+				this);
+		LinearLayout holder = (LinearLayout) view.findViewById( R.id.calendarHolder );
+		holder.setOnTouchListener(swipeDetector);
 
         // nastaveni kalendare
 		_calendar = Calendar.getInstance(Locale.getDefault());
@@ -99,9 +90,6 @@ public class CalendarFragment extends Fragment implements OnClickListener {
 				R.id.calendar_day_gridcell, month, year);
 		adapter.notifyDataSetChanged();
 		calendarView.setAdapter(adapter);
-		
-		// TODO nefunguje spravne
-		calendarView.setOnTouchListener(gestureListener);
 
 		return view;
 	}
@@ -158,7 +146,6 @@ public class CalendarFragment extends Fragment implements OnClickListener {
 	 */
 	private class GridCellAdapter extends BaseAdapter implements
 			OnClickListener {
-		private static final String tag = "GridCellAdapter";
 		private final Context _context;
 
 		private final List<String> list;
@@ -473,35 +460,4 @@ public class CalendarFragment extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 	}
-	
-	/**
-	 * Swipe listener
-	 * @author Tkadla
-	 *
-	 */
-	class MyGestureDetector extends SimpleOnGestureListener {
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            try {
-                if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
-                    return false;
-                
-                // right to left swipe
-                if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-
-                	Log.wtf("swipe", "Left");
-                	
-                }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                	
-                	Log.wtf("swipe", "Right");
-                }             
-             
-            } catch (Exception e) {
-                // nothing
-            }
-            return false;
-        }
-
-    }
-
 }

@@ -1,4 +1,4 @@
-package cz.zeleznakoule.kebap.interfaces;
+package cz.zeleznakoule.kebap.shared;
 
 public class Constants {
 	private Constants(){}

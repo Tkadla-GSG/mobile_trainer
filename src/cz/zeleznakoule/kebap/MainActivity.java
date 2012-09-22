@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 
-import static cz.zeleznakoule.kebap.interfaces.Constants.*;
+import static cz.zeleznakoule.kebap.shared.Constants.*;
 
 public class MainActivity extends BaseFragmentActivity {
 

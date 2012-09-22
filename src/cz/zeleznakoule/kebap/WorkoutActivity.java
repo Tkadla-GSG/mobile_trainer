@@ -29,7 +29,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.content.Intent;
 
-import static cz.zeleznakoule.kebap.interfaces.Constants.*;
+import static cz.zeleznakoule.kebap.shared.Constants.*;
 
 public class WorkoutActivity extends BaseFragmentActivity {
 
