@@ -11,6 +11,8 @@ import com.nineoldandroids.animation.ValueAnimator;
 import cz.zeleznakoule.kebap.model.datasources.DayTypeDataSource;
 import cz.zeleznakoule.kebap.model.datasources.WorkoutDataSource;
 import cz.zeleznakoule.kebap.model.entities.DayType;
+import cz.zeleznakoule.kebap.shared.DatePickerFragment;
+import cz.zeleznakoule.kebap.shared.LengthPickerFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;

@@ -1,7 +1,12 @@
-package cz.zeleznakoule.kebap;
+package cz.zeleznakoule.kebap.shared;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import cz.zeleznakoule.kebap.R;
+import cz.zeleznakoule.kebap.R.id;
+import cz.zeleznakoule.kebap.R.layout;
+import cz.zeleznakoule.kebap.R.string;
 
 import kankan.wheel.widget.WheelView;
 import kankan.wheel.widget.adapters.NumericWheelAdapter;

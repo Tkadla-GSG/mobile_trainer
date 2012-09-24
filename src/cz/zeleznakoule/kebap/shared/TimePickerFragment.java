@@ -1,4 +1,4 @@
-package cz.zeleznakoule.kebap;
+package cz.zeleznakoule.kebap.shared;
 
 import java.util.Calendar;
 

@@ -3,6 +3,8 @@ package cz.zeleznakoule.kebap;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.MenuItem;
 
+import cz.zeleznakoule.kebap.shared.TabListener;
+
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;

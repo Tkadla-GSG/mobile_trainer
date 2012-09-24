@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/calendarHolder"
-    style="@style/layout"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    style="@style/layout_no_padding"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical" >
 
     <GridView
@@ -15,6 +17,8 @@
     </GridView>
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/calendarDivider"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center" >
@@ -30,6 +34,7 @@
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/calendarControl"
         style="@style/topBottomPadding"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -61,5 +66,5 @@
             android:src="@drawable/calendar_right_arrow_selector" >
         </ImageView>
     </LinearLayout>
-
+        
 </LinearLayout>

@@ -1,9 +1,12 @@
-package cz.zeleznakoule.kebap;
+package cz.zeleznakoule.kebap.shared;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import cz.zeleznakoule.kebap.R;
+import cz.zeleznakoule.kebap.R.id;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;

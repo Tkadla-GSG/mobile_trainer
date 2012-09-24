@@ -1,4 +1,4 @@
-package cz.zeleznakoule.kebap;
+package cz.zeleznakoule.kebap.shared;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;

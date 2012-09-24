@@ -27,13 +27,16 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.View.OnClickListener;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -56,18 +59,18 @@ public class CalendarFragment extends BaseFragment implements OnClickListener {
 	private int month, year;
 	private static final String dateTemplate = "MMMM yyyy";
 
+	
+	private static int MIN_DISTANCE = 100;
+	private static int THRESHOLD_VELOCITY = 200;
+	private static int MAX_OFF_PATH = 250;
+	float downX = -1;
+	float downY = -1; 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
 		View view = inflater.inflate(R.layout.calendar_view, container, false);
 		
-		// detekovani gest
-		FragmentGestureListener swipeDetector = new FragmentGestureListener(
-				this);
-		LinearLayout holder = (LinearLayout) view.findViewById( R.id.calendarHolder );
-		holder.setOnTouchListener(swipeDetector);
-
         // nastaveni kalendare
 		_calendar = Calendar.getInstance(Locale.getDefault());
 		month = _calendar.get(Calendar.MONTH) + 1;
@@ -85,6 +88,73 @@ public class CalendarFragment extends BaseFragment implements OnClickListener {
 
 		calendarView = (GridView) view.findViewById(R.id.calendar);
 
+		final ViewConfiguration vc = ViewConfiguration.get( getActivity() );
+		MIN_DISTANCE = vc.getScaledTouchSlop();
+		THRESHOLD_VELOCITY = vc.getScaledMinimumFlingVelocity();
+		
+		calendarView.setOnTouchListener( new View.OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				switch (event.getAction()) {
+				case MotionEvent.ACTION_DOWN: {
+
+
+					return true;
+				}
+				case MotionEvent.ACTION_MOVE: {
+					
+					if(downX == -1){
+						downX = event.getX();
+						downY = event.getY();
+					}
+					
+					return true; // not consuming event, just measuring
+				}
+				case MotionEvent.ACTION_UP: {
+
+					// path tracking
+					float deltaX = downX - event.getX();
+					float deltaY = downY - event.getY();
+					
+					// swipe horizontal?
+					if (Math.abs(deltaX) > MIN_DISTANCE ) {
+
+						if (Math.abs(deltaY) > MAX_OFF_PATH) // event is to much off, discard it
+							return false;
+
+						// left or right
+						if (deltaX < 0) {
+
+							onLeftToRightSwipe();
+							
+							downX = -1;
+							downX = -1;
+							
+							return true;
+						}
+						if (deltaX > 0) {
+
+							onRightToLeftSwipe();
+							
+							downX = -1;
+							downX = -1;
+							
+							return true;
+						}
+					} else {
+						return false; // We don't consume the event
+					}
+
+					return true;
+				}
+				}
+				return false;
+			}
+		
+		} );
+		
+		
 		// Initialised
 		adapter = new GridCellAdapter(getActivity(),
 				R.id.calendar_day_gridcell, month, year);
@@ -92,6 +162,16 @@ public class CalendarFragment extends BaseFragment implements OnClickListener {
 		calendarView.setAdapter(adapter);
 
 		return view;
+	}
+
+	@Override
+	public void onRightToLeftSwipe() {
+		showNext();
+	};
+	
+	@Override
+	public void onLeftToRightSwipe() {
+		showPrev();
 	}
 
 	/**
@@ -108,29 +188,36 @@ public class CalendarFragment extends BaseFragment implements OnClickListener {
 		adapter.notifyDataSetChanged();
 		calendarView.setAdapter(adapter);
 	}
+	
+	private void showPrev(){
+		if (month <= 1) {
+			month = 12;
+			year--;
+		} else {
+			month--;
+		}
+
+		setGridCellAdapterToDate(month, year);
+	}
+	
+	private void showNext(){
+		if (month > 11) {
+			month = 1;
+			year++;
+		} else {
+			month++;
+		}
+
+		setGridCellAdapterToDate(month, year);
+	}
 
 	public void onClick(View view) {
 		if (view == prevMonth) {
-			if (month <= 1) {
-				month = 12;
-				year--;
-			} else {
-				month--;
-			}
-
-			setGridCellAdapterToDate(month, year);
+			showPrev();
 		}
 		if (view == nextMonth) {
-			if (month > 11) {
-				month = 1;
-				year++;
-			} else {
-				month++;
-			}
-
-			setGridCellAdapterToDate(month, year);
+			showNext();
 		}
-
 	}
 
 	@Override

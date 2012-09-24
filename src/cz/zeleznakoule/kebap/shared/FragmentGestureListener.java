@@ -2,6 +2,7 @@ package cz.zeleznakoule.kebap.shared;
 
 import cz.zeleznakoule.kebap.BaseFragment;
 
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
