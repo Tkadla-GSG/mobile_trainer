@@ -175,8 +175,6 @@ public class WorkoutActivity extends BaseFragmentActivity {
 		int month = getIntent().getIntExtra("month", cal.get(Calendar.MONTH));
 		int day = getIntent().getIntExtra("day", cal.get(Calendar.DATE));
 		
-		Log.d("getted day", "" + day);
-		
 		cal.set(year, month, day);
 		
 		dateFieldTextView.setText(sdf.format( cal.getTime() ));

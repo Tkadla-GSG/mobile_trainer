@@ -2,7 +2,6 @@ package cz.zeleznakoule.kebap.shared;
 
 import cz.zeleznakoule.kebap.BaseFragment;
 
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -75,7 +74,8 @@ public class FragmentGestureListener implements View.OnTouchListener {
 			if (Math.abs(deltaX) > MIN_DISTANCE
 					&& Math.abs(vTracker.getXVelocity()) > THRESHOLD_VELOCITY) {
 
-				if (Math.abs(deltaY) > MAX_OFF_PATH) // event is to much off, discard it
+				if (Math.abs(deltaY) > MAX_OFF_PATH) // event is to much off,
+														// discard it
 					return false;
 
 				// left or right
@@ -95,7 +95,8 @@ public class FragmentGestureListener implements View.OnTouchListener {
 			if (Math.abs(deltaY) > MIN_DISTANCE
 					&& Math.abs(vTracker.getYVelocity()) > THRESHOLD_VELOCITY) {
 
-				if (Math.abs(deltaX) > MAX_OFF_PATH) // event is to much off, discard it
+				if (Math.abs(deltaX) > MAX_OFF_PATH) // event is to much off,
+														// discard it
 					return false;
 
 				// top or down

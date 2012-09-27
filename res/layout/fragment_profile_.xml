@@ -9,8 +9,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
-    style="@style/topBottomPadding" />
-    
+    style="@style/topBottomPadding" />
 <ViewFlipper
     android:id="@+id/flipper"
     android:layout_width="match_parent"

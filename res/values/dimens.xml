@@ -8,6 +8,8 @@
     <dimen name="page_indicator_size">10dip</dimen>
     <dimen name="page_indicator_padding">5dip</dimen>
     
+    <dimen name="small_text">18sp</dimen>
+    
     <integer name="fast_animation">200</integer>
 
 </resources>
