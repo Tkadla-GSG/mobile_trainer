@@ -22,15 +22,19 @@
             android:contentDescription="@string/previous"
             android:background="@drawable/calendar_left_arrow_selector" >
         </ImageButton>
-
+
         <TextView
             android:id="@+id/currentMonth"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="0.6"
             android:background="@color/KebapWhite"
+            android:gravity="center"
+            android:text="@string/dummy_text"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/KebapLightGray" >
+
         </TextView>
 
         <ImageButton
@@ -46,10 +50,15 @@
     android:id="@+id/calendarFlipper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android1:layout_above="@id/calendarControls" >
+    android:layout_above="@id/calendarControls" >
     
     <cz.zeleznakoule.kebap.shared.CalendarView
-	    android:id="@+id/calendar"
+	    android:id="@+id/calendar1"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" />
+    
+    <cz.zeleznakoule.kebap.shared.CalendarView
+	    android:id="@+id/calendar2"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent" />
     

@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.content.Context;
 import android.content.res.Resources;
 
-public class Cell {
+public class CalendarCell {
 	protected Rect mBound = null;
 	protected int mDayOfMonth = 1;	// from 1 to 31
 	protected Paint textPaint = new Paint(Paint.SUBPIXEL_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
@@ -21,7 +21,7 @@ public class Cell {
 	
 	protected Resources mRes = null; 
 		
-	public Cell(Context context, int dayOfMon, Rect rect, float textSize, boolean bold) {
+	public CalendarCell(Context context, int dayOfMon, Rect rect, float textSize, boolean bold) {
 		mDayOfMonth = dayOfMon;
 		mBound = rect;
 		mRes = context.getResources(); 
@@ -37,7 +37,7 @@ public class Cell {
 		dy = (int) (-textPaint.ascent() + textPaint.descent()) / 2;
 	}
 	
-	public Cell(Context context, int dayOfMon, Rect rect, float textSize) {
+	public CalendarCell(Context context, int dayOfMon, Rect rect, float textSize) {
 		this(context, dayOfMon, rect, textSize, false);
 	}
 	
@@ -82,7 +82,7 @@ public class Cell {
 	
 	public void setSelected(){
 		setBgColor( mRes.getColor( R.color.KebapLightGray ) );
-		setTextColor( mRes.getColor( R.color.KebapRed ) );
+		setTextColor( mRes.getColor( R.color.KebapWhite ) );
 		selected = true;
 	}
 	

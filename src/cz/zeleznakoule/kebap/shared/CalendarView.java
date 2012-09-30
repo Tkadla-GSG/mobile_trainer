@@ -1,7 +1,9 @@
-
 package cz.zeleznakoule.kebap.shared;
 
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import cz.zeleznakoule.kebap.R;
 
@@ -27,11 +29,11 @@ public class CalendarView extends ImageView {
 	private static float CELL_TEXT_SIZE;
 
 	private Calendar mRightNow = null;
-	private Cell mToday = null;
-	private Cell mSelectedCell = null;
-	private Cell[][] mCells = new Cell[6][7];
+	private CalendarCell mToday = null;
+	private CalendarCell mSelectedCell = null;
+	private CalendarCell[][] mCells = new CalendarCell[6][7];
 	private OnCellTouchListener mOnCellTouchListener = null;
-	private OnSwipeListener mOnSwipeListener = null; 
+	private OnSwipeListener mOnSwipeListener = null;
 	private MonthDisplayHelper mHelper;
 
 	private VelocityTracker vTracker = null;
@@ -41,16 +43,19 @@ public class CalendarView extends ImageView {
 	private float downX, downY;
 
 	public interface OnCellTouchListener {
-		public void onTouch(Cell cell);
+		public void onTouch(CalendarCell cell);
 	}
-	
+
 	public interface OnSwipeListener {
 		public void OnLeftToRightSwipe();
+
 		public void OnRightToLeftSwipe();
+
 		public void OnTopToBottomSwipe();
+
 		public void OnBottomToTopSwipe();
 	}
-	
+
 	public CalendarView(Context context) {
 		this(context, null);
 	}
@@ -58,7 +63,7 @@ public class CalendarView extends ImageView {
 	public CalendarView(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
-	
+
 	public CalendarView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 
@@ -70,11 +75,13 @@ public class CalendarView extends ImageView {
 	}
 
 	private void initCalendarView() {
-		mRightNow = Calendar.getInstance();
+		mRightNow = Calendar.getInstance(TimeZone.getDefault(),
+				Locale.getDefault());
 
-		Resources res = getResources(); 
-		CELL_TEXT_SIZE = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 
-				res.getDimension(R.dimen.small_text), res.getDisplayMetrics()) ;
+		Resources res = getResources();
+		CELL_TEXT_SIZE = (int) TypedValue.applyDimension(
+				TypedValue.COMPLEX_UNIT_SP,
+				res.getDimension(R.dimen.small_text), res.getDisplayMetrics());
 
 		mHelper = new MonthDisplayHelper(mRightNow.get(Calendar.YEAR),
 				mRightNow.get(Calendar.MONTH), mRightNow.getFirstDayOfWeek());
@@ -109,7 +116,8 @@ public class CalendarView extends ImageView {
 			}
 		}
 
-		Calendar today = Calendar.getInstance();
+		Calendar today = Calendar.getInstance(TimeZone.getDefault(),
+				Locale.getDefault());
 		int thisDay = 0;
 		mToday = null;
 		if (mHelper.getYear() == today.get(Calendar.YEAR)
@@ -126,18 +134,21 @@ public class CalendarView extends ImageView {
 					// mark weekends
 					if (mHelper.getWeekStartDay() == Calendar.MONDAY
 							&& day == 5 || day == 6)
-						mCells[week][day] = new WeekendCell(getContext(), tmp[week][day].day,
-								new Rect(Bound), CELL_TEXT_SIZE);
+						mCells[week][day] = new WeekendCell(getContext(),
+								tmp[week][day].day, new Rect(Bound),
+								CELL_TEXT_SIZE);
 					else if (mHelper.getWeekStartDay() == Calendar.SATURDAY
 							&& day == 0 || day == 6)
-						mCells[week][day] = new WeekendCell(getContext(), tmp[week][day].day,
-								new Rect(Bound), CELL_TEXT_SIZE);
+						mCells[week][day] = new WeekendCell(getContext(),
+								tmp[week][day].day, new Rect(Bound),
+								CELL_TEXT_SIZE);
 					else
-						mCells[week][day] = new Cell(getContext(), tmp[week][day].day,
-								new Rect(Bound), CELL_TEXT_SIZE);
+						mCells[week][day] = new CalendarCell(getContext(),
+								tmp[week][day].day, new Rect(Bound),
+								CELL_TEXT_SIZE);
 				} else {
-					mCells[week][day] = new DisabledCell(getContext(), tmp[week][day].day,
-							new Rect(Bound), CELL_TEXT_SIZE);
+					mCells[week][day] = new DisabledCell(getContext(),
+							tmp[week][day].day, new Rect(Bound), CELL_TEXT_SIZE);
 				}
 
 				Bound.offset(CELL_WIDTH, 0); // move to next column
@@ -202,11 +213,21 @@ public class CalendarView extends ImageView {
 	}
 
 	public void goToday() {
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = Calendar.getInstance(TimeZone.getDefault(),
+				Locale.getDefault());
 		mHelper = new MonthDisplayHelper(cal.get(Calendar.YEAR),
 				cal.get(Calendar.MONTH));
 		initCells();
 		invalidate();
+	}
+
+	public Date getDisplayedMonth() {
+		Calendar cal = Calendar.getInstance(TimeZone.getDefault(),
+				Locale.getDefault());
+		cal.set(mHelper.getYear(), mHelper.getMonth(),
+				mHelper.getFirstDayOfMonth());
+
+		return cal.getTime();
 	}
 
 	public Calendar getDate() {
@@ -219,8 +240,8 @@ public class CalendarView extends ImageView {
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 
-			for (Cell[] week : mCells) {
-				for (Cell day : week) {
+			for (CalendarCell[] week : mCells) {
+				for (CalendarCell day : week) {
 					if (day.hitTest((int) event.getX(), (int) event.getY())) {
 						day.setSelected();
 						invalidate(day.getBound());
@@ -244,8 +265,8 @@ public class CalendarView extends ImageView {
 
 		case MotionEvent.ACTION_MOVE:
 
-			for (Cell[] week : mCells) {
-				for (Cell day : week) {
+			for (CalendarCell[] week : mCells) {
+				for (CalendarCell day : week) {
 					if (day.hitTest((int) event.getX(), (int) event.getY())) {
 						// pokud se posunu mimo vybrany datum, vypnu zvyrazneni
 						if (mSelectedCell != null && !day.isSelected()) {
@@ -266,14 +287,14 @@ public class CalendarView extends ImageView {
 		case MotionEvent.ACTION_UP:
 
 			// Nektera bunka je vybrana, jedna se o klik na datum
-			if (mSelectedCell != null) { 
+			if (mSelectedCell != null) {
 				mSelectedCell.setNotSelected();
 				invalidate(mSelectedCell.getBound());
 				mOnCellTouchListener.onTouch(mSelectedCell);
 				mSelectedCell = null;
-				
+
 			} else {
-			
+
 				// path tracking
 				float deltaX = downX - event.getX();
 				float deltaY = downY - event.getY();
@@ -287,11 +308,11 @@ public class CalendarView extends ImageView {
 
 					// left or right
 					if (deltaX < 0) {
-						mOnSwipeListener.OnRightToLeftSwipe();							
+						mOnSwipeListener.OnRightToLeftSwipe();
 						return true;
 					}
 					if (deltaX > 0) {
-						mOnSwipeListener.OnLeftToRightSwipe();			
+						mOnSwipeListener.OnLeftToRightSwipe();
 						return true;
 					}
 				} else {
@@ -332,9 +353,15 @@ public class CalendarView extends ImageView {
 	public void setOnCellTouchListener(OnCellTouchListener p) {
 		mOnCellTouchListener = p;
 	}
-	
+
 	public void setOnSwipeListener(OnSwipeListener p) {
 		mOnSwipeListener = p;
+	}
+
+	public void setMonthHelper(int year, int month, int day) {
+		mHelper = new MonthDisplayHelper(year, month, day);
+		initCells();
+		invalidate();
 	}
 
 	@Override
@@ -348,22 +375,23 @@ public class CalendarView extends ImageView {
 		}
 
 		// draw cells
-		for (Cell[] week : mCells) {
-			for (Cell day : week) {
+		for (CalendarCell[] week : mCells) {
+			for (CalendarCell day : week) {
 				day.draw(canvas);
 			}
 		}
 	}
 
-	public class EventCell extends Cell {
+	public class EventCell extends CalendarCell {
 		public EventCell(Context context, int dayOfMon, Rect rect, float s) {
 			super(context, dayOfMon, rect, s);
 			textColor = context.getResources().getColor(R.color.KebapRed);
-			setTextColor(context.getResources().getColor(R.color.KebapRed), true);
+			setTextColor(context.getResources().getColor(R.color.KebapRed),
+					true);
 		}
 	}
 
-	public class DisabledCell extends Cell {
+	public class DisabledCell extends CalendarCell {
 		public DisabledCell(Context context, int dayOfMon, Rect rect, float s) {
 			super(context, dayOfMon, rect, s);
 			textColor = Color.LTGRAY;
@@ -371,13 +399,35 @@ public class CalendarView extends ImageView {
 		}
 	}
 
-	private class WeekendCell extends Cell {
+	private class WeekendCell extends CalendarCell {
 		public WeekendCell(Context context, int dayOfMon, Rect rect, float s) {
 			super(context, dayOfMon, rect, s);
-			textColor = context.getResources().getColor(R.color.KebapLightRed);
-			setTextColor(context.getResources().getColor(R.color.KebapLightRed));
+			textColor = context.getResources().getColor(R.color.KebapMediumRed);
+			setTextColor(context.getResources()
+					.getColor(R.color.KebapMediumRed));
 		}
 
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+
+		if (!(o instanceof CalendarView))
+			return false;
+
+		CalendarView that = (CalendarView) o;
+
+		// now a proper field-by-field evaluation can be made
+		return getYear() == that.getYear() &&
+				getMonth() == that.getMonth();
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
 	}
 
 }
